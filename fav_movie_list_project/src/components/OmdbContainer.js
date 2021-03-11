@@ -6,6 +6,7 @@ import Card from "./Card";
 import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
+import YouTube from "react-youtube";
 
 class OmdbContainer extends Component {
   state = {
@@ -22,7 +23,7 @@ class OmdbContainer extends Component {
     API.search(query)
       .then((res) => {
         console.log(res);
-        this.setState({ result: res.data.results });
+        this.setState({ result: res.data.results[0]});
       })
 
       .catch((err) => console.log(err));
@@ -43,6 +44,16 @@ class OmdbContainer extends Component {
   };
 
   render() {
+
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+      },
+    };
+
     return (
       <Container>
         <Row>
@@ -54,6 +65,7 @@ class OmdbContainer extends Component {
                 <MovieDetail
                   title={this.state.result.title}
                   src={this.state.result.poster_path}
+                  videoId={this.state.trailerUrl}
                   id={this.state.result.id}
                   popularity={this.state.result.popularity}
                   released={this.state.result.release_date}
@@ -61,6 +73,7 @@ class OmdbContainer extends Component {
               ) : (
                 <h3>No Results to Display</h3>
               )}
+              <YouTube videoId="wDjeBNv6ip0" opts={opts} onReady={this._onReady} />
             </Card>
           </Col>
           <Col size="md-4">
