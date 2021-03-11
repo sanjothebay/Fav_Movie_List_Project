@@ -14,15 +14,15 @@ class OmdbContainer extends Component {
   };
 
   // When this component mounts, search for the movie "The Matrix"
-  componentDidMount() {
-    this.searchMovies("soul");
-  }
+  // componentDidMount() {
+  //   this.searchMovies("soul");
+  // }
 
   searchMovies = query => {
     API.search(query)
       .then(res => {
         console.log(res)
-        this.setState({ result: res.data.results[0] })})
+        this.setState({ result: res.data.results})})
 
       .catch(err => console.log(err));
   };
@@ -42,22 +42,21 @@ class OmdbContainer extends Component {
   };
 
   render() {
-        const {movies} = this.state.result
-    console.log(movies)
+
     return (
       <Container>
         <Row>
           <Col size="md-8">
             <Card
-              heading={this.state.result.title || "Search for a Movie to Begin"}
+              title={this.state.result.title || "Search for a Movie to Begin"}
             >
               {this.state.result.title ? (
                 <MovieDetail
                   title={this.state.result.title}
                   src={this.state.result.poster_path}
-                  director={this.state.result.director}
-                  genre={this.state.result.genre}
-                  released={this.state.result.released}
+                  id={this.state.result.id}
+                  popularity={this.state.result.popularity}
+                  released={this.state.result.release_date}
                 />
               ) : (
                 <h3>No Results to Display</h3>

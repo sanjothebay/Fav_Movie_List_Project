@@ -1,12 +1,8 @@
-import MovieDataBaseContainer from './components/MovieDataBaseContainer';
+import React from "react";
+import OmdbContainer from "./components/OmdbContainer";
 
 function App() {
-  return (
-    <div className="App">
-    Fav Movie React project 
-    <MovieDataBaseContainer/>
-    </div>
-  );
+  return <OmdbContainer />;
 }
 
 export default App;
