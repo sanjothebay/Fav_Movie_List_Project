@@ -7,6 +7,7 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
+import NavBar from "./Navbar";
 
 class OmdbContainer extends Component {
   state = {
