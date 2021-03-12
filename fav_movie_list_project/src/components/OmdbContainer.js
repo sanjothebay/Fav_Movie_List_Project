@@ -42,6 +42,7 @@ class OmdbContainer extends Component {
     event.preventDefault();
     this.searchMovies(this.state.search);
   };
+  
 
   render() {
 
@@ -53,6 +54,7 @@ class OmdbContainer extends Component {
         autoplay: 1,
       },
     };
+    
 
     return (
       <Container>
