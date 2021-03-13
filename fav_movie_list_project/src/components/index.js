@@ -8,11 +8,6 @@ import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
 
-
-
-
-
-
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
 class OmdbContainer extends Component {
@@ -72,23 +67,24 @@ class OmdbContainer extends Component {
               title={this.state.result.title || "Search for a Movie to Begin"}
             >
               {this.state.result.title ? (
-                <MovieDetail
-                  title={this.state.result.title}
-                  src={this.state.result.poster_path}
-                  videoId={this.state.trailerId}
-                  id={this.state.result.id}
-                  popularity={this.state.result.popularity}
-                  released={this.state.result.release_date}
-                  
-                />
+                <div>
+                  <MovieDetail
+                    title={this.state.result.title}
+                    src={this.state.result.poster_path}
+                    videoId={this.state.trailerId}
+                    id={this.state.result.id}
+                    popularity={this.state.result.popularity}
+                    released={this.state.result.release_date}
+                  />
+                  <YouTube
+                    videoId={this.state.trailerId}
+                    opts={opts}
+                    onReady={this._onReady}
+                  />
+                </div>
               ) : (
                 <h3>No Results to Display</h3>
               )}
-              <YouTube
-                videoId={this.state.trailerId}
-                opts={opts}
-                onReady={this._onReady}
-              />
             </Card>
           </Col>
           <Col size="md-4">
