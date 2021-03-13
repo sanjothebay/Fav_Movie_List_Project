@@ -7,6 +7,7 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
+import TrailerYoutubeVideo from "./TrailerYoutubeVideo";
 
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
@@ -95,6 +96,13 @@ class OmdbContainer extends Component {
                 handleFormSubmit={this.handleFormSubmit}
               />
             </Card>
+            <TrailerYoutubeVideo>
+            <YouTube
+                videoId={this.state.trailerId}
+                opts={opts}
+                onReady={this._onReady}
+              />
+            </TrailerYoutubeVideo>
           </Col>
         </Row>
       </Container>
