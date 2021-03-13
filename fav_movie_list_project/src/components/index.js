@@ -7,12 +7,19 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
-import NavBar from "./Navbar";
+
+
+
+
+
+
+const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
 class OmdbContainer extends Component {
   state = {
     result: {},
     search: "",
+    trailerId: "",
   };
 
   // When this component mounts, search for the movie "The Matrix"
@@ -20,11 +27,14 @@ class OmdbContainer extends Component {
   //   this.searchMovies("soul");
   // }
 
-  searchMovies = (query) => {
+  searchMovies = async (query) => {
     API.search(query)
       .then((res) => {
         console.log(res);
-        this.setState({ result: res.data.results[0]});
+        movieTrailer(query, { id: true }).then((trailer) => {
+          console.log(trailer);
+          this.setState({ result: res.data.results[0], trailerId: trailer });
+        });
       })
 
       .catch((err) => console.log(err));
@@ -43,19 +53,16 @@ class OmdbContainer extends Component {
     event.preventDefault();
     this.searchMovies(this.state.search);
   };
-  
 
   render() {
-
     const opts = {
-      height: '390',
-      width: '640',
+      height: "390",
+      width: "640",
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 1,
       },
     };
-    
 
     return (
       <Container>
@@ -68,15 +75,20 @@ class OmdbContainer extends Component {
                 <MovieDetail
                   title={this.state.result.title}
                   src={this.state.result.poster_path}
-                  videoId={this.state.trailerUrl}
+                  videoId={this.state.trailerId}
                   id={this.state.result.id}
                   popularity={this.state.result.popularity}
                   released={this.state.result.release_date}
+                  
                 />
               ) : (
                 <h3>No Results to Display</h3>
               )}
-              <YouTube videoId="wDjeBNv6ip0" opts={opts} onReady={this._onReady} />
+              <YouTube
+                videoId={this.state.trailerId}
+                opts={opts}
+                onReady={this._onReady}
+              />
             </Card>
           </Col>
           <Col size="md-4">
