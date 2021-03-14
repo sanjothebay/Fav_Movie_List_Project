@@ -63,7 +63,7 @@ class OmdbContainer extends Component {
     return (
       <Container>
         <Row>
-          <Col size="md-8">
+          <Col size="md-6">
             <Card
               title={this.state.result.title || "Search for a Movie to Begin"}
             >
@@ -88,7 +88,7 @@ class OmdbContainer extends Component {
               )}
             </Card>
           </Col>
-          <Col size="md-4">
+          <Col size="md-3">
             <Card heading="Search">
               <SearchForm
                 value={this.state.search}
