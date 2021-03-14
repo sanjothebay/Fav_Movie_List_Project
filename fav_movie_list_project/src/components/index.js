@@ -7,28 +7,34 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
-import TrailerYoutubeVideo from "./TrailerYoutubeVideo";
 
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
 class OmdbContainer extends Component {
-  state = {
-    result: {},
-    search: "",
-    trailerId: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: {},
+      search: "",
+      trailerId: "",
+      favouritesMovies: [],
+      newfavouritesMoviesArray: [],
+    };
+    this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
 
-  // When this component mounts, search for the movie "The Matrix"
-  // componentDidMount() {
-  //   this.searchMovies("soul");
-  // }
+  //  // When this component mounts, search for the movie "The Matrix"
+  //   componentDidMount() {
+  //     this.searchMovies("soul");
+  //   }
 
   searchMovies = async (query) => {
     API.search(query)
       .then((res) => {
         console.log(res);
         movieTrailer(query, { id: true }).then((trailer) => {
-          console.log(trailer);
           this.setState({ result: res.data.results[0], trailerId: trailer });
         });
       })
@@ -37,11 +43,26 @@ class OmdbContainer extends Component {
   };
 
   handleInputChange = (event) => {
+    event.preventDefault();
     const value = event.target.value;
     const name = event.target.name;
     this.setState({
       [name]: value,
     });
+  };
+
+  handleMOviefavourites = (event) => {
+    event.preventDefault();
+    this.searchMovies(this.state.search);
+    const newfavouritesMoviesArray = this.state.favouritesMovies;
+    const newMovieTilte = event.target.dataset.title;
+    //newMovieTilte.push(newfavouritesMoviesArray);
+    console.log(newMovieTilte);
+    console.log("clicked");
+
+    // this.setState({
+    //   [name]: value,
+    // });
   };
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
@@ -76,6 +97,7 @@ class OmdbContainer extends Component {
                     id={this.state.result.id}
                     popularity={this.state.result.popularity}
                     released={this.state.result.release_date}
+                    onClick={this.handleMOviefavourites}
                   />
                   {/* <YouTube
                     videoId={this.state.trailerId}
