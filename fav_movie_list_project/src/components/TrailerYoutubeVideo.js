@@ -9,7 +9,7 @@ function TrailerYoutubeVideo(props) {
         <Card.Body>
           <Card.Title>Trailer</Card.Title>
           <Card.Text>
-          {/* <YouTube
+            {/* <YouTube
                 videoId={props.trailerId}
               /> */}
           </Card.Text>

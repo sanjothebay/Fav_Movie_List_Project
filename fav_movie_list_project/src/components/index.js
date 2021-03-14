@@ -77,11 +77,11 @@ class OmdbContainer extends Component {
                     popularity={this.state.result.popularity}
                     released={this.state.result.release_date}
                   />
-                  <YouTube
+                  {/* <YouTube
                     videoId={this.state.trailerId}
                     opts={opts}
                     onReady={this._onReady}
-                  />
+                  /> */}
                 </div>
               ) : (
                 <h3>No Results to Display</h3>
@@ -96,13 +96,21 @@ class OmdbContainer extends Component {
                 handleFormSubmit={this.handleFormSubmit}
               />
             </Card>
-            <TrailerYoutubeVideo>
-            <YouTube
-                videoId={this.state.trailerId}
-                opts={opts}
-                onReady={this._onReady}
-              />
-            </TrailerYoutubeVideo>
+            <Col size="md-">
+              <div>
+                {this.state.result.title ? (
+                  <div>
+                    <YouTube
+                      videoId={this.state.trailerId}
+                      opts={opts}
+                      onReady={this._onReady}
+                    />
+                  </div>
+                ) : (
+                  <h3></h3>
+                )}
+              </div>
+            </Col>
           </Col>
         </Row>
       </Container>
