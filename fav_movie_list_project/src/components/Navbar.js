@@ -27,7 +27,6 @@ function NavTab(props) {
           crossorigin="anonymous"
         />
       </head>
-
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <a
           class="navbar-brand"
