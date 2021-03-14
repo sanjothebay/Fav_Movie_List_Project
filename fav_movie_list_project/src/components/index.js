@@ -19,6 +19,7 @@ class OmdbContainer extends Component {
       trailerId: "",
       favouritesMovies: [],
       newfavouritesMoviesArray: [],
+      newMovieTilte: [],
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -56,12 +57,13 @@ class OmdbContainer extends Component {
     this.searchMovies(this.state.search);
     const newfavouritesMoviesArray = this.state.favouritesMovies;
     const newMovieTilte = event.target.dataset.title;
-    //newMovieTilte.push(newfavouritesMoviesArray);
+    const copyOfFavouritesList = [...newfavouritesMoviesArray]
+    copyOfFavouritesList.push(newMovieTilte)
     console.log(newMovieTilte);
     console.log("clicked");
 
     // this.setState({
-    //   [name]: value,
+    //   [newfavouritesMoviesArray]: value,
     // });
   };
 
@@ -98,6 +100,7 @@ class OmdbContainer extends Component {
                     popularity={this.state.result.popularity}
                     released={this.state.result.release_date}
                     onClick={this.handleMOviefavourites}
+                    favList={this.state.newMovieTilte}
                   />
                   {/* <YouTube
                     videoId={this.state.trailerId}
