@@ -60,11 +60,10 @@ class OmdbContainer extends Component {
     const copyOfFavouritesList = [...newfavouritesMoviesArray]
     copyOfFavouritesList.push(newMovieTilte)
     console.log(newMovieTilte);
-    console.log("clicked");
 
-    // this.setState({
-    //   [newfavouritesMoviesArray]: value,
-    // });
+    this.setState({
+      newMovieTilte: copyOfFavouritesList,
+    });
   };
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
