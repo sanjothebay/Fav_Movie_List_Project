@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavTab from "./Navbar";
 import Index from "./index";
-import MyWatchList from "./myWatchList";
+import MyWatchList from "./MyWatchList";
 import FriendWatchList from "./friendWatchList";
 import Stats from "./stats";
 
@@ -18,7 +18,7 @@ class Container extends Component {
     if (this.state.currentPage === "Index") {
       return <Index />;
     } else if (this.state.currentPage === "myWatchList") {
-      return <MyWatchList />;
+      return <MyWatchList favList={this.state.newMovieTilte}/>;
     } else if (this.state.currentPage === "friendWatchList") {
       return <FriendWatchList />;
     } else {

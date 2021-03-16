@@ -6,7 +6,7 @@ function MyWatchList(props) {
   return (
     <container class="contactcard">
       <h1>My Watch List will be here</h1>
-      <h2>
+      <h2 >
       Favourites Movies: {props.newMovieTilte}
       </h2>
     </container>

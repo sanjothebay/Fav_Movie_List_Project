@@ -20,6 +20,8 @@ class OmdbContainer extends Component {
       favouritesMovies: [],
       newfavouritesMoviesArray: [],
       newMovieTilte: [],
+      copyOfFavouritesList: [],
+      
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -60,7 +62,7 @@ class OmdbContainer extends Component {
     const copyOfFavouritesList = [...newfavouritesMoviesArray]
     copyOfFavouritesList.push(newMovieTilte)
     console.log(newMovieTilte);
-
+    console.log(copyOfFavouritesList);
     this.setState({
       newMovieTilte: copyOfFavouritesList,
     });
