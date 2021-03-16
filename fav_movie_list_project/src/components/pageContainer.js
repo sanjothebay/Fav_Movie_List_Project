@@ -1,29 +1,28 @@
 import React, { Component } from "react";
 import NavTab from "./Navbar";
 import Index from "./index";
-import MyWatchList from "./myWatchList";
+import MyWatchList from "./MyWatchList";
 import FriendWatchList from "./friendWatchList";
 import Stats from "./stats";
 
-
 class Container extends Component {
   state = {
-    currentPage: "Index"
+    currentPage: "Index",
   };
 
-  handlePageChange = page => {
+  handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
 
   renderPage = () => {
     if (this.state.currentPage === "Index") {
-        return <Index />;
+      return <Index />;
     } else if (this.state.currentPage === "myWatchList") {
-        return <MyWatchList />;
-    }else if (this.state.currentPage === "friendWatchList") {
-        return <FriendWatchList />;
+      return <MyWatchList favList={this.state.newMovieTilte}/>;
+    } else if (this.state.currentPage === "friendWatchList") {
+      return <FriendWatchList />;
     } else {
-        return <Stats />;
+      return <Stats />;
     }
   };
 
@@ -35,7 +34,6 @@ class Container extends Component {
           handlePageChange={this.handlePageChange}
         />
         {this.renderPage()}
-
       </div>
     );
   }
