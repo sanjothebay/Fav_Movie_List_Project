@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import NavTab from "./Navbar";
-import Index from "./index";
+import Index from "./Index";
 import MyWatchList from "./MyWatchList";
-import FriendWatchList from "./friendWatchList";
-import Stats from "./stats";
+import FriendWatchList from "./FriendWatchList";
+import Stats from "./Stats";
 
 class Container extends Component {
   state = {
