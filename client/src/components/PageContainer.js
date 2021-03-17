@@ -1,0 +1,42 @@
+import React, { Component } from "react";
+import NavTab from "./Navbar";
+import Index from "./Index";
+import MyWatchList from "./MyWatchList";
+import FriendWatchList from "./FriendWatchList";
+import Stats from "./Stats";
+
+class Container extends Component {
+  state = {
+    currentPage: "Index",
+  };
+
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+  };
+
+  renderPage = () => {
+    if (this.state.currentPage === "Index") {
+      return <Index />;
+    } else if (this.state.currentPage === "myWatchList") {
+      return <MyWatchList favList={this.props.newMovieTilte}/>;
+    } else if (this.state.currentPage === "friendWatchList") {
+      return <FriendWatchList />;
+    } else {
+      return <Stats />;
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <NavTab
+          currentPage={this.state.currentPage}
+          handlePageChange={this.handlePageChange}
+        />
+        {this.renderPage()}
+      </div>
+    );
+  }
+}
+
+export default Container;
