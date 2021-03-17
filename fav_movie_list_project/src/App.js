@@ -1,5 +1,5 @@
 import React from "react";
-import OmdbContainer from "./components/index";
+import OmdbContainer from "./components/Index";
 import Container from "./components/PageContainer";
 import "./App.css";
 
