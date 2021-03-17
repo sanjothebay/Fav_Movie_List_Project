@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React, { Component } from "react";
 import Container from "./Container";
 import Row from "./Row";
@@ -10,7 +11,16 @@ import YouTube from "react-youtube";
 
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
+// const useStore = create((set: setState) => ({
+//   newMovieTilte: [],
+//   setMOvieTrailer: (newMovieTilte) => set(partial,{newMovieTilte})
+// }));
+
+
+// const [newMovieTilte, setMOvieTrailer] = useState(newMovieTilte);
+
 class OmdbContainer extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
