@@ -7,6 +7,7 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
+import LoginScreen from "./LoginScreen";
 
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
@@ -86,6 +87,8 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
+        <LoginScreen/>
+        
         <Row>
           <Col size="md-6">
             <Card
