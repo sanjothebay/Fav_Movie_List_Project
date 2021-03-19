@@ -1,6 +1,5 @@
-//import { useState } from "react";
 import React, { Component } from "react";
-//import Container from "./Container";
+import Container from "./Container";
 import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
@@ -8,19 +7,11 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
+import LoginScreen from "./LoginScreen";
 
 const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
 
-// const useStore = create((set: setState) => ({
-//   newMovieTilte: [],
-//   setMOvieTrailer: (newMovieTilte) => set(partial,{newMovieTilte})
-// }));
-
-
-// const [newMovieTilte, setMOvieTrailer] = useState(newMovieTilte);
-
 class OmdbContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -95,7 +86,9 @@ class OmdbContainer extends Component {
     };
 
     return (
-      <div>
+      <Container>
+        <LoginScreen/>
+        
         <Row>
           <Col size="md-6">
             <Card
@@ -149,7 +142,7 @@ class OmdbContainer extends Component {
             </Col>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }
