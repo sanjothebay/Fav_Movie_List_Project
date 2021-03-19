@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Stats() {
   return (
-    <container class="contactcard">
+    <div class="contactcard">
       <h1>
       My Friend's Watchlist:
       </h1>
@@ -62,7 +62,7 @@ function Stats() {
           </tr>
         </tbody>
       </table>
-    </container>
+    </div>
   );
 }
 export default Stats;

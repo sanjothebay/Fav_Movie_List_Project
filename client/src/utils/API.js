@@ -9,4 +9,7 @@ export default {
   search: function (query) {
     return axios.get(BASEURL + APIKEY + "&query=" + query);
   },
+  getMovies: function () {
+    return axios.get("http://localhost:3001")
+  }
 };

@@ -6,7 +6,7 @@ import FriendWatchList from "./FriendWatchList";
 import Stats from "./Stats";
 import Footer from "./Footer";
 
-class Container extends Component {
+class PageContainer extends Component {
   state = {
     currentPage: "Index",
   };
@@ -19,7 +19,7 @@ class Container extends Component {
     if (this.state.currentPage === "Index") {
       return <Index />;
     } else if (this.state.currentPage === "myWatchList") {
-      return <MyWatchList favList={this.props.newMovieTilte}/>;
+      return <MyWatchList />;
     } else if (this.state.currentPage === "friendWatchList") {
       return <FriendWatchList />;
     } else {
@@ -41,4 +41,4 @@ class Container extends Component {
   }
 }
 
-export default Container;
+export default PageContainer;

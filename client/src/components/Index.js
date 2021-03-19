@@ -1,6 +1,6 @@
-import { useState } from "react";
+//import { useState } from "react";
 import React, { Component } from "react";
-import Container from "./Container";
+//import Container from "./Container";
 import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
@@ -95,7 +95,7 @@ class OmdbContainer extends Component {
     };
 
     return (
-      <Container>
+      <div>
         <Row>
           <Col size="md-6">
             <Card
@@ -149,7 +149,7 @@ class OmdbContainer extends Component {
             </Col>
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }

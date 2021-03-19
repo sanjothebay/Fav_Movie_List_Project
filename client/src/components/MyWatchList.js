@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyWatchList(props) {
   return (
-    <container class="contactcard">
+    <div class="contactcard">
       <h1>
       My Watchlist: {props.newMovieTilte}
       </h1>
@@ -62,7 +62,7 @@ function MyWatchList(props) {
           </tr>
         </tbody>
       </table>
-    </container>
+    </div>
   );
 }
 export default MyWatchList;
