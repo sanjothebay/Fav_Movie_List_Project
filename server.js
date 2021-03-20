@@ -9,9 +9,10 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 const User = require("./user");
+const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  "mongodb+srv://Luis_JC_Eduardo:project3@cluster0.siiyp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongodb+srv://JC:Welcome1!@cluster0.ffyjb.mongodb.net/favourite_movie_list?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -78,7 +79,7 @@ app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 //----------------------------------------- END OF ROUTES---------------------------------------------------
-//Start Server
-app.listen(4000, () => {
-  console.log("Server Has Started");
+/// Start the API server
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

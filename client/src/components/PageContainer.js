@@ -4,7 +4,6 @@ import Index from "./Index";
 import MyWatchList from "./MyWatchList";
 import FriendWatchList from "./FriendWatchList";
 import Stats from "./Stats";
-import Footer from "./Footer";
 
 class Container extends Component {
   state = {
@@ -19,7 +18,7 @@ class Container extends Component {
     if (this.state.currentPage === "Index") {
       return <Index />;
     } else if (this.state.currentPage === "myWatchList") {
-      return <MyWatchList favList={this.state.newMovieTilte}/>;
+      return <MyWatchList />;
     } else if (this.state.currentPage === "friendWatchList") {
       return <FriendWatchList />;
     } else {
@@ -35,7 +34,6 @@ class Container extends Component {
           handlePageChange={this.handlePageChange}
         />
         {this.renderPage()}
-        <Footer />
       </div>
     );
   }
