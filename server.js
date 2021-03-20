@@ -12,7 +12,7 @@ const User = require("./user");
 const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/favourite_movie_list",
+  process.env.MONGODB_URI || "mongodb+srv://JC:Welcome1!@cluster0.ffyjb.mongodb.net/favourite_movie_list?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
