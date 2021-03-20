@@ -12,10 +12,12 @@ const User = require("./user");
 const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  "mongodb+srv://JC:Welcome1!@cluster0.ffyjb.mongodb.net/favourite_movie_list?retryWrites=true&w=majority",
+  process.env.MONGODB_URI || "mongodb://localhost/favourite_movie_list",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
   },
   () => {
     console.log("Mongoose Is Connected");
@@ -23,6 +25,10 @@ mongoose.connect(
 );
 
 // Middleware
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
