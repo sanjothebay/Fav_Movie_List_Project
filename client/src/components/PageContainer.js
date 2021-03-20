@@ -18,7 +18,7 @@ class Container extends Component {
     if (this.state.currentPage === "Index") {
       return <Index />;
     } else if (this.state.currentPage === "myWatchList") {
-      return <MyWatchList favList={this.state.newMovieTilte}/>;
+      return <MyWatchList />;
     } else if (this.state.currentPage === "friendWatchList") {
       return <FriendWatchList />;
     } else {

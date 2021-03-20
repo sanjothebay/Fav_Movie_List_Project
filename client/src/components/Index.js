@@ -9,7 +9,8 @@ import API from "../utils/API";
 import YouTube from "react-youtube";
 import LoginScreen from "./LoginScreen";
 
-const movieTrailer = require("movie-trailer"); // or import movieTrailer from 'movie-trailer'
+// or import movieTrailer from 'movie-trailer'
+const movieTrailer = require("movie-trailer");
 
 class OmdbContainer extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class OmdbContainer extends Component {
       newfavouritesMoviesArray: [],
       newMovieTilte: [],
       copyOfFavouritesList: [],
-      
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -60,8 +60,8 @@ class OmdbContainer extends Component {
     this.searchMovies(this.state.search);
     const newfavouritesMoviesArray = this.state.favouritesMovies;
     const newMovieTilte = event.target.dataset.title;
-    const copyOfFavouritesList = [...newfavouritesMoviesArray]
-    copyOfFavouritesList.push(newMovieTilte)
+    const copyOfFavouritesList = [...newfavouritesMoviesArray];
+    copyOfFavouritesList.push(newMovieTilte);
     console.log(newMovieTilte);
     console.log(copyOfFavouritesList);
     this.setState({
@@ -87,8 +87,8 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
-        <LoginScreen/>
-        
+        <LoginScreen />
+
         <Row>
           <Col size="md-6">
             <Card
@@ -106,11 +106,6 @@ class OmdbContainer extends Component {
                     onClick={this.handleMOviefavourites}
                     favList={this.state.newMovieTilte}
                   />
-                  {/* <YouTube
-                    videoId={this.state.trailerId}
-                    opts={opts}
-                    onReady={this._onReady}
-                  /> */}
                 </div>
               ) : (
                 <h3>No Results to Display</h3>
