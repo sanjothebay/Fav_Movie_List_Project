@@ -80,6 +80,6 @@ app.get("/user", (req, res) => {
 });
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.listen(PORT, () => {
+  console.log("Server Has Started");
 });
