@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
-const models = require("../models/index");
+const Models = require("../models/index");
 var assert = require("assert");
 
 var url = "mongodb://localhost/favourite_movie_list"
@@ -18,7 +18,7 @@ router.get("/get-data", function(req, res, next) {
     
 });
 
-router.post("/insert", function(req, res, next) {
+Model.create("/insert", function(req, res, next) {
     var item = {
         title: req.body.title
     };
