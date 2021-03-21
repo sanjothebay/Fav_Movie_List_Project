@@ -74,7 +74,7 @@ class OmdbContainer extends Component {
   favoriteMovieAdd = (newTitle) => {
     Axios({
       method: "POST",
-      url: "/insert",
+      url: "/api/insert",
       data: {
         title: newTitle,
       },

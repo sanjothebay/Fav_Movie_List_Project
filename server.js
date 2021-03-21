@@ -1,4 +1,4 @@
-const router = require("./client/routes/index");
+const router = require("./routes/index");
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
@@ -86,7 +86,7 @@ app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
-app.use("/", router);
+app.use("/api/", router);
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server
 app.listen(PORT, function () {

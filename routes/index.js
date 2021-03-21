@@ -24,7 +24,7 @@ router.post("/insert", function(req, res, next) {
     console.log(item)
     mongo.connect(url, function (err, db) {
         assert.equal(null, err);
-        db.collection("user-data").insertOne(item, function(err, result) {
+        db.title.insertOne(item, function(err, result) {
             console.log("item Inserted")
             db.close()
             
