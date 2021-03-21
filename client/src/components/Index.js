@@ -61,7 +61,7 @@ class OmdbContainer extends Component {
     const newfavouritesMoviesArray = this.state.newMovieTilte;
     const newMovieTilte = event.target.dataset.title;
     const copyOfFavouritesList = [...newfavouritesMoviesArray];
-    copyOfFavouritesList.push([newMovieTilte]);
+    copyOfFavouritesList.push(newMovieTilte);
     this.setState({
       newMovieTilte: copyOfFavouritesList,
     });
