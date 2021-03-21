@@ -1,11 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const mongoose = require("mongoose");
 const Title = require("../models/index");
-//vconst Title = mongoose.model('Title', title);
-var assert = require("assert");
-
-var url = "mongodb://localhost/favourite_movie_list"
 
 
 // home page 
@@ -48,10 +43,10 @@ router.post("/insert", (req, res) => {
         res.send("Movie Created");
       
     });
-    router.get("/insert", (req, res) => {
-      res.send(req.title); // The req.title stores the entire user that has been authenticated inside of it.
-    });
-  });
+});
+router.get("/insert", (req, res) => {
+  res.send(req.title); // The req.title stores the entire user that has been authenticated inside of it.
+});
   
 
 module.exports = router;

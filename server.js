@@ -86,7 +86,7 @@ app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
-app.use("/api/", router);
+app.use("/api", router);
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server
 app.listen(PORT, function () {
