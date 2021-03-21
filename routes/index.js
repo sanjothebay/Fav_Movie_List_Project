@@ -1,3 +1,4 @@
+const title = require("../models/index");
 var express = require("express");
 var router = express.Router();
 var mongo = require("mongodb");
@@ -22,11 +23,11 @@ router.post("/insert", function(req, res, next) {
         title: req.body.title
     };
     console.log(item)
-    mongo.connect(url, function (err, db) {
+    mongo.connect(url, function (err, title) {
         assert.equal(null, err);
-        db.title.insertOne(item, function(err, result) {
+        title.collection("user-data").insertOne(item, function(err, result) {
             console.log("item Inserted")
-            db.close()
+            title.close()
             
         } );
     })
