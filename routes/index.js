@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const mongoose = require("mongoose");
-const Models = require("../models/index");
+const Title = require("../models/index");
+//vconst Title = mongoose.model('Title', title);
 var assert = require("assert");
 
 var url = "mongodb://localhost/favourite_movie_list"
@@ -18,22 +19,40 @@ router.get("/get-data", function(req, res, next) {
     
 });
 
-Model.create("/insert", function(req, res, next) {
-    var item = {
-        title: req.body.title
-    };
-    console.log(item)
-    mongoose.connect(url, function (err, db) {
-        assert.equal(null, err);
-        db.collection("user-data").insertOne(item, function(err, result) {
-            console.log("item Inserted")
-            db.close()
+// router.post("/insert", function(req, res, next) {
+//     var item = {
+//         title: req.body.title
+//     };
+//     console.log(item)
+//     mongoose.connect(url, function (err, db) {
+//         assert.equal(null, err);
+//         db.collection("user-data").insertOne(item, function(err, result) {
+//             console.log("item Inserted")
+//             db.close()
             
-        } );
-    })
-    res.redirect("/")
-});
+//         } );
+//     })
+//     res.redirect("/")
+// });
 
+
+router.post("/insert", (req, res) => {
+    Title.findOne({ title: req.body.title }, async (err, doc) => {
+      if (err) throw err;
+      if (doc) res.send("Movie Already Exists");
+  
+        const newTitle = new Title({
+          title: req.body.title,
+        });
+        await newTitle.save();
+        res.send("Movie Created");
+      
+    });
+    router.get("/insert", (req, res) => {
+      res.send(req.title); // The req.title stores the entire user that has been authenticated inside of it.
+    });
+  });
+  
 
 module.exports = router;
 
