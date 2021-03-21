@@ -8,6 +8,7 @@ import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
 import LoginScreen from "./LoginScreen";
+import Axios from "axios";
 
 // or import movieTrailer from 'movie-trailer'
 const movieTrailer = require("movie-trailer");
@@ -55,7 +56,7 @@ class OmdbContainer extends Component {
     });
   };
 
-  handleMOviefavourites = (event) => {
+  handleMOviefavourites = (event, ) => {
     event.preventDefault();
     this.searchMovies(this.state.search);
     const newfavouritesMoviesArray = this.state.newMovieTilte;
@@ -67,6 +68,17 @@ class OmdbContainer extends Component {
     });
     console.log(newMovieTilte);
     console.log(copyOfFavouritesList);
+    this.favoriteMovieAdd(newMovieTilte);
+  };
+
+  favoriteMovieAdd = (newTitle) => {
+    Axios({
+      method: "POST",
+      url: "/insert",
+      data: {
+        title: newTitle,
+      },
+    }).then((res) => console.log(res));
   };
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
@@ -74,6 +86,7 @@ class OmdbContainer extends Component {
     event.preventDefault();
     this.searchMovies(this.state.search);
   };
+  
 
   render() {
     const opts = {
