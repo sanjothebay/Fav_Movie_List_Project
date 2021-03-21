@@ -1,7 +1,7 @@
-const title = require("../models/index");
 var express = require("express");
 var router = express.Router();
-var mongo = require("mongodb");
+const mongoose = require("mongoose");
+const models = require("../models/index");
 var assert = require("assert");
 
 var url = "mongodb://localhost/favourite_movie_list"
@@ -23,11 +23,11 @@ router.post("/insert", function(req, res, next) {
         title: req.body.title
     };
     console.log(item)
-    mongo.connect(url, function (err, title) {
+    mongoose.connect(url, function (err, db) {
         assert.equal(null, err);
-        title.collection("user-data").insertOne(item, function(err, result) {
+        db.collection("user-data").insertOne(item, function(err, result) {
             console.log("item Inserted")
-            title.close()
+            db.close()
             
         } );
     })
