@@ -35,6 +35,11 @@ class OmdbContainer extends Component {
   //     this.searchMovies("soul");
   //   }
 
+     // When this component mounts, search for the movie "The Matrix"
+    // componentDidMount() {
+    //   this.getfavoriteMovieAdd();
+    // }
+
   searchMovies = async (query) => {
     API.search(query)
       .then((res) => {
@@ -68,13 +73,23 @@ class OmdbContainer extends Component {
     });
     console.log(newMovieTilte);
     console.log(copyOfFavouritesList);
-    this.favoriteMovieAdd(newMovieTilte);
+    //this.favoriteMovieAdd(newMovieTilte);
   };
 
   favoriteMovieAdd = (newTitle) => {
     Axios({
       method: "POST",
       url: "/api/insert",
+      data: {
+        title: newTitle,
+      },
+    }).then((res) => console.log(res));
+  };
+
+  getfavoriteMovieAdd = (newTitle) => {
+    Axios({
+      method: "GET",
+      url: "/api/get-data",
       data: {
         title: newTitle,
       },
