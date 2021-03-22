@@ -56,7 +56,7 @@ class OmdbContainer extends Component {
     });
   };
 
-  handleMOviefavourites = (event, ) => {
+  handleMOviefavourites = (event) => {
     event.preventDefault();
     this.searchMovies(this.state.search);
     const newfavouritesMoviesArray = this.state.newMovieTilte;
@@ -86,7 +86,6 @@ class OmdbContainer extends Component {
     event.preventDefault();
     this.searchMovies(this.state.search);
   };
-  
 
   render() {
     const opts = {
