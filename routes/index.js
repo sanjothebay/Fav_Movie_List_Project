@@ -14,7 +14,7 @@ router.get("/", function (req, res, next) {
 router.get("/get-data", function (req, res) {
   Title.find({ title: req.body.title },function(err, docs) {
     if(err)res.json(err);
-    else res.render({ title: req.body.title })
+    else res.send({ title: req.body.title })
   });
 });
 

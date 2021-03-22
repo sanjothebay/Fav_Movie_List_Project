@@ -36,9 +36,9 @@ class OmdbContainer extends Component {
   //   }
 
      // When this component mounts, search for the movie "The Matrix"
-    // componentDidMount() {
-    //   this.getfavoriteMovieAdd();
-    // }
+    componentDidMount() {
+      this.getfavoriteMovieAdd();
+    }
 
   searchMovies = async (query) => {
     API.search(query)
