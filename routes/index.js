@@ -12,11 +12,11 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/get-data", function (req, res) {
-  console.log(req.body)
-  Title.find({ title: req.body.title },function(err, docs) {
-    if(err)res.json(err);
-    else res.send({ title: req.body.title })
-  });
+  console.log("Logging titles:", req.body)
+ // Title.find({ title: req.body.title },function(err, docs) {
+   // if(err)res.json(doc);
+    res.send({title: "Data"});
+// });
 });
 
 router.post("/insert", (req, res) => {

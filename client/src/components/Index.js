@@ -24,7 +24,7 @@ class OmdbContainer extends Component {
       newfavouritesMoviesArray: [],
       newMovieTilte: [],
       copyOfFavouritesList: [],
-      //newTitle: [],
+      newTitle: [],
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -36,7 +36,7 @@ class OmdbContainer extends Component {
   //     this.searchMovies("soul");
   //   }
 
-     // When this component mounts, get the title"
+    // When this component mounts, get the title"
     componentDidMount() {
       this.getfavoriteMovieAdd(this.state.newTitle);
     }
