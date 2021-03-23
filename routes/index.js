@@ -15,7 +15,7 @@ router.get("/get-data", function (req, res) {
   console.log("Logging titles:", req.body)
  // Title.find({ title: req.body.title },function(err, docs) {
    // if(err)res.json(doc);
-    res.send({title: "Data"});
+    res.send({title: req.body.title});
 // });
 });
 
