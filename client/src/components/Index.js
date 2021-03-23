@@ -24,6 +24,7 @@ class OmdbContainer extends Component {
       newfavouritesMoviesArray: [],
       newMovieTilte: [],
       copyOfFavouritesList: [],
+      //newTitle: [],
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -35,9 +36,9 @@ class OmdbContainer extends Component {
   //     this.searchMovies("soul");
   //   }
 
-     // When this component mounts, search for the movie "The Matrix"
+     // When this component mounts, get the title"
     componentDidMount() {
-      this.getfavoriteMovieAdd();
+      this.getfavoriteMovieAdd(this.state.newTitle);
     }
 
   searchMovies = async (query) => {
@@ -73,7 +74,7 @@ class OmdbContainer extends Component {
     });
     console.log(newMovieTilte);
     console.log(copyOfFavouritesList);
-    //this.favoriteMovieAdd(newMovieTilte);
+    this.favoriteMovieAdd(newMovieTilte);
   };
 
   favoriteMovieAdd = (newTitle) => {
@@ -87,6 +88,7 @@ class OmdbContainer extends Component {
   };
 
   getfavoriteMovieAdd = (newTitle) => {
+    console.log(newTitle)
     Axios({
       method: "GET",
       url: "/api/get-data",
@@ -94,7 +96,7 @@ class OmdbContainer extends Component {
         title: newTitle,
       },
     }).then((res) => console.log(res));
-  };
+};
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
   handleFormSubmit = (event) => {
