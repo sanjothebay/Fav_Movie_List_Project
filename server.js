@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const User = require("./user");
 const PORT = process.env.PORT || 4000;
+
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/favourite_movie_list",
@@ -56,11 +57,11 @@ require("./passportConfig")(passport);
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No User Exists");
+    if (!user) res.status(200).json({message: "User does not exist"});
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Successfully Authenticated");
+        res.status(200).json({message: "Successfully authenticated", user: req.user._id});
         console.log(req.user);
       });
     }
@@ -84,9 +85,11 @@ app.post("/register", (req, res) => {
 });
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+  
 });
 
-app.use("/api", router);
+
+
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server
 app.listen(PORT, function () {

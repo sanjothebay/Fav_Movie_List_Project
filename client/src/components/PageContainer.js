@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavTab from "./Navbar";
 import Index from "./Index";
+import LoginScreen from "./LoginScreen"
 import MyWatchList from "./MyWatchList";
 import FriendWatchList from "./FriendWatchList";
 import Stats from "./Stats";
@@ -21,7 +22,10 @@ class Container extends Component {
       return <MyWatchList />;
     } else if (this.state.currentPage === "friendWatchList") {
       return <FriendWatchList />;
-    } else {
+    } else if (this.state.currentPage === "LoginScreen") {
+      return <LoginScreen />;
+    } 
+    else {
       return <Stats />;
     }
   };
