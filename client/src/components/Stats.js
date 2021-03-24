@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Stats() {
   return (
-    <container class="contactcard">
+    <container className="contactcard">
       <h1>Stats will be here</h1>
     </container>
   );
