@@ -107,7 +107,7 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
-        <LoginScreen />
+        
 
         <Row>
           <Col size="md-6">

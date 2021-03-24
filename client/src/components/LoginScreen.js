@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./LoginStyles.css";
 import Axios from "axios";
 
 function LoginScreen() {
@@ -28,7 +28,15 @@ function LoginScreen() {
       },
       withCredentials: true,
       url: "/login",
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      console.log(res)
+      if (res.data.message === "Successfully authenticated"){
+        console.log(res.data, "success")
+        localStorage.setItem("authenticatedUser", res.data.user)
+      } else {
+        console.log(res.data, "failed")
+      }
+    });
   };
   const getUser = () => {
     Axios({
@@ -68,7 +76,7 @@ function LoginScreen() {
         <button onClick={login}>Submit</button>
       </div>
 
-      <div>
+      <div className="test">
         <h1>Get User</h1>
         <button onClick={getUser}>Submit</button>
         {data ? <h1>Welcome Back {data.username}</h1> : null}
