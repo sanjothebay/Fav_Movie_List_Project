@@ -8,11 +8,11 @@ function NavTab(props) {
   return (
       <Navbar bg="dark" variant="dark"> 
 
-      <Link to="/home"> 
+      <Link to="/"> 
         <Navbar.Brand 
         className={
-          location.pathname === "/home" ? "nav-link active" : "nav-link"
-        }>Movie Watch List</Navbar.Brand>
+          location.pathname === "/" ? "nav-link active" : "nav-link"
+        }>Log In</Navbar.Brand>
       </Link>
 
 
@@ -36,7 +36,7 @@ function NavTab(props) {
           <Navbar.Brand 
           className={
             location.pathname === "/others" ? "nav-link active" : "nav-link"
-          }>My Friends' Watch List</Navbar.Brand >
+          }>Friends Watch List</Navbar.Brand >
           </Link>
 
           <Link to="/stats">
