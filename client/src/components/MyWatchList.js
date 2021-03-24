@@ -7,6 +7,7 @@ import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
@@ -35,6 +36,7 @@ function MyWatchList() {
         <th>API Rating</th>
         <th>My Rating</th>
         <th>Watched</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
@@ -56,6 +58,9 @@ function MyWatchList() {
               </DropdownButton>
           </InputGroup>
         </td>
+        <td>
+          <Button variant="danger">Remove</Button>
+        </td>
       </tr>
       <tr>
         <td>2</td>
@@ -75,6 +80,9 @@ function MyWatchList() {
               </DropdownButton>
           </InputGroup>
         </td>
+        <td>
+          <Button variant="danger">Remove</Button>
+        </td>
       </tr>
       <tr>
         <td>3</td>
@@ -93,6 +101,9 @@ function MyWatchList() {
               <Dropdown.Item href="#">No</Dropdown.Item>
               </DropdownButton>
           </InputGroup>
+        </td>
+        <td>
+          <Button variant="danger">Remove</Button>
         </td>
       </tr>
     </tbody>

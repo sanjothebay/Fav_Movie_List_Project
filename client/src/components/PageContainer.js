@@ -5,6 +5,7 @@ import LoginScreen from "./LoginScreen"
 import MyWatchList from "./MyWatchList";
 import FriendWatchList from "./FriendWatchList";
 import Stats from "./Stats";
+import Footer from "./Footer";
 
 class Container extends Component {
   state = {
@@ -38,7 +39,10 @@ class Container extends Component {
           handlePageChange={this.handlePageChange}
         />
         {this.renderPage()}
+
+        <Footer />
       </div>
+
     );
   }
 }
