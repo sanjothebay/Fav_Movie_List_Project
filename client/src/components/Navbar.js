@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
 function NavTab(props) {
   return (
       <Navbar bg="dark" variant="dark">
