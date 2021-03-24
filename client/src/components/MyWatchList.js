@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //import "../styles/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Axios from "axios";
 
 function MyWatchList() {
+  const [favMovies, setFavMovies] = useState([]);
+
+  const getfavoriteMovieAdd = () => {
+    Axios({
+      method: "GET",
+      url: "/api/get-data",
+    }).then((res) => {
+      console.log(res, "these are the docs from teh backend");
+      setFavMovies(res.data.docs);
+    });
+  };
+
+  useEffect(() => {
+    getfavoriteMovieAdd();
+  }, []);
+
   return (
     <container class="contactcard">
       <h1>My Watch List will be here</h1>

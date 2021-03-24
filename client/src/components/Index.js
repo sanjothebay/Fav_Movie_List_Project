@@ -37,9 +37,9 @@ class OmdbContainer extends Component {
   //   }
 
   // When this component mounts, get the title"
-  componentDidMount() {
-    this.getfavoriteMovieAdd(this.state.newTitle);
-  }
+  // componentDidMount() {
+  //   this.getfavoriteMovieAdd(this.state.newTitle);
+  // }
   
   searchMovies = async (query) => {
     API.search(query)
@@ -87,15 +87,7 @@ class OmdbContainer extends Component {
     }).then((res) => console.log(res));
   };
 
-  getfavoriteMovieAdd = (newTitle) => {
-    Axios({
-      method: "GET",
-      url: "/api/get-data",
-      data: {
-        title: newTitle,
-      },
-    }).then((res) => console.log(res));
-  };
+
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
   handleFormSubmit = (event) => {
