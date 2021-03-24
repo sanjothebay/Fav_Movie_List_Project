@@ -12,11 +12,10 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/get-data", function (req, res) {
-  console.log("Logging titles:", req.body)
   Title.find(function(err, docs) {
     if(err)res.json(doc);
-   console.log("Logging titles:", docs)
     res.send({ docs });
+    console.log("Logging titles:", docs)
  });
 });
 

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //import "../styles/style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Axios from "axios";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -7,6 +9,22 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 function MyWatchList() {
+  const [favMovies, setFavMovies] = useState([]);
+
+  const getfavoriteMovieAdd = () => {
+    Axios({
+      method: "GET",
+      url: "/api/get-data",
+    }).then((res) => {
+      console.log(res, "these are the docs from teh backend");
+      setFavMovies(res.data.docs);
+    });
+  };
+
+  useEffect(() => {
+    getfavoriteMovieAdd();
+  }, []);
+
   return (
   <Table striped bordered hover>
     <thead>
