@@ -1,37 +1,51 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-<<<<<<< HEAD
+import {Link, useLocation} from "react-router-dom";
 
-=======
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
->>>>>>> main
 function NavTab(props) {
+  const location = useLocation();
   return (
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#index" onClick={() => props.handlePageChange("Index")}
+      <Navbar bg="dark" variant="dark"> 
+
+      <Link to="/home"> 
+        <Navbar.Brand 
         className={
-          props.currentPage === "Index" ? "nav-link active" : "nav-link"
+          location.pathname === "/home" ? "nav-link active" : "nav-link"
         }>Movie Watch List</Navbar.Brand>
+      </Link>
+
+
         <Nav className="mr-auto">
-          <Nav.Link href="#index" onClick={() => props.handlePageChange("Index")}
+
+          <Link to="/home">
+            <Navbar.Brand 
+            className={
+              location.pathname === "/home" ? "nav-link active" : "nav-link"
+            }>Home</Navbar.Brand >
+          </Link>
+
+          <Link to="/self">
+            <Navbar.Brand 
           className={
-            props.currentPage === "Index" ? "nav-link active" : "nav-link"
-          }>Home</Nav.Link>
-          <Nav.Link href="#myWatchList" onClick={() => props.handlePageChange("myWatchList")}
+            location.pathname === "/self" ? "nav-link active" : "nav-link"
+          }>My Watch List</Navbar.Brand >
+          </Link>
+
+          <Link to="/others">
+          <Navbar.Brand 
           className={
-            props.currentPage === "myWatchList" ? "nav-link active" : "nav-link"
-          }>My Watch List</Nav.Link>
-          <Nav.Link href="#friendWatchList" onClick={() => props.handlePageChange("friendWatchList")}
+            location.pathname === "/others" ? "nav-link active" : "nav-link"
+          }>My Friends' Watch List</Navbar.Brand >
+          </Link>
+
+          <Link to="/stats">
+          <Navbar.Brand 
           className={
-            props.currentPage === "friendWatchList" ? "nav-link active" : "nav-link"
-          }>My Friends' Watch List</Nav.Link>
-          <Nav.Link href="#stats" onClick={() => props.handlePageChange("Stats")}
-          className={
-            props.currentPage === "Stats" ? "nav-link active" : "nav-link"
-          }>Stats</Nav.Link>
+            location.pathname === "Stats" ? "nav-link active" : "nav-link"
+          }>Stats</Navbar.Brand >
+          </Link>
+
         </Nav>
       </Navbar>
   );
