@@ -8,6 +8,7 @@ import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
 import LoginScreen from "./LoginScreen";
+import Axios from "axios";
 
 // or import movieTrailer from 'movie-trailer'
 const movieTrailer = require("movie-trailer");
@@ -23,6 +24,7 @@ class OmdbContainer extends Component {
       newfavouritesMoviesArray: [],
       newMovieTilte: [],
       copyOfFavouritesList: [],
+      newTitle: [],
     };
     this.handleMOviefavourites = this.handleMOviefavourites.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -34,6 +36,11 @@ class OmdbContainer extends Component {
   //     this.searchMovies("soul");
   //   }
 
+  // When this component mounts, get the title"
+  componentDidMount() {
+    this.getfavoriteMovieAdd(this.state.newTitle);
+  }
+  
   searchMovies = async (query) => {
     API.search(query)
       .then((res) => {
@@ -58,15 +65,36 @@ class OmdbContainer extends Component {
   handleMOviefavourites = (event) => {
     event.preventDefault();
     this.searchMovies(this.state.search);
-    const newfavouritesMoviesArray = this.state.favouritesMovies;
+    const newfavouritesMoviesArray = this.state.newMovieTilte;
     const newMovieTilte = event.target.dataset.title;
     const copyOfFavouritesList = [...newfavouritesMoviesArray];
     copyOfFavouritesList.push(newMovieTilte);
-    console.log(newMovieTilte);
-    console.log(copyOfFavouritesList);
     this.setState({
       newMovieTilte: copyOfFavouritesList,
     });
+    console.log(newMovieTilte);
+    console.log(copyOfFavouritesList);
+    this.favoriteMovieAdd(newMovieTilte);
+  };
+
+  favoriteMovieAdd = (newTitle) => {
+    Axios({
+      method: "POST",
+      url: "/api/insert",
+      data: {
+        title: newTitle,
+      },
+    }).then((res) => console.log(res));
+  };
+
+  getfavoriteMovieAdd = (newTitle) => {
+    Axios({
+      method: "GET",
+      url: "/api/get-data",
+      data: {
+        title: newTitle,
+      },
+    }).then((res) => console.log(res));
   };
 
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
