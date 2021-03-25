@@ -50,6 +50,7 @@ app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
+app.use("/api", router);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
@@ -87,8 +88,6 @@ app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
   
 });
-
-
 
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server
