@@ -28,9 +28,6 @@ function MyWatchList() {
     <Table striped bordered hover>
       <thead>
         <tr>
-          {favMovies.map((doc) => (
-            <ul key={doc}>{doc.title}</ul>
-          ))}
           <th># </th>
           <th>Movie Name</th>
           <th>Genre</th>
@@ -41,29 +38,31 @@ function MyWatchList() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Movie Name 1</td>
-          <td>Genre 1</td>
-          <td>API Rating 1</td>
-          <td>My Rating 1</td>
-          <td>
-            <InputGroup className="mb-3">
-              <DropdownButton
-                as={InputGroup.Prepend}
-                variant="outline-secondary"
-                title="Already Watched?"
-                id="input-group-dropdown-1"
-              >
-                <Dropdown.Item href="#">Yes</Dropdown.Item>
-                <Dropdown.Item href="#">No</Dropdown.Item>
-              </DropdownButton>
-            </InputGroup>
-          </td>
-          <td>
-            <Button variant="danger">Remove</Button>
-          </td>
-        </tr>
+        {favMovies.map((doc) => (
+          <tr>
+            <td>1</td>
+            <td>{doc.title}</td>
+            <td>Genre 1</td>
+            <td>API Rating 1</td>
+            <td>My Rating 1</td>
+            <td>
+              <InputGroup className="mb-3">
+                <DropdownButton
+                  as={InputGroup.Prepend}
+                  variant="outline-secondary"
+                  title="Already Watched?"
+                  id="input-group-dropdown-1"
+                >
+                  <Dropdown.Item href="#">Yes</Dropdown.Item>
+                  <Dropdown.Item href="#">No</Dropdown.Item>
+                </DropdownButton>
+              </InputGroup>
+            </td>
+            <td>
+              <Button variant="danger">Remove</Button>
+            </td>
+          </tr>
+        ))}
         <tr>
           <td>2</td>
           <td>Movie Name 2</td>
