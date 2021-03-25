@@ -77,15 +77,15 @@ class OmdbContainer extends Component {
     this.favoriteMovieAdd(newMovieTilte);
   };
 
-  favoriteMovieAdd = (newTitle) => {
-    Axios({
-      method: "POST",
-      url: "/api/insert",
-      data: {
-        title: newTitle,
-      },
-    }).then((res) => console.log(res));
-  };
+  // favoriteMovieAdd = (newTitle) => {
+  //   Axios({
+  //     method: "POST",
+  //     url: "/api/insert",
+  //     data: {
+  //       title: newTitle,
+  //     },
+  //   }).then((res) => console.log(res));
+  // };
 
 
 

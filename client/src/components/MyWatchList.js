@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import "../styles/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
-//import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -25,6 +23,13 @@ function MyWatchList() {
   useEffect(() => {
     getfavoriteMovieAdd();
   }, []);
+
+  <div>
+    {favMovies.map((doc, index) =>{
+      return <h1>{doc.title}</h1>
+
+    })}
+    </div>
 
   return (
   <Table striped bordered hover>
