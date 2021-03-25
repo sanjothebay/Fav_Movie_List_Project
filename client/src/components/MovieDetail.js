@@ -13,8 +13,8 @@ function MovieDetail(props) {
         💥🎬💥
       </button>
       <h3>id: {props.id}</h3>
-      <h3>popularity: {props.popularity}</h3>
-      <h3>Released: {props.released}</h3>
+      <h3>{props.released}</h3>
+      <h3>{props.description}</h3>
     </div>
   );
 }

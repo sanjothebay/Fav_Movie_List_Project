@@ -117,7 +117,7 @@ class OmdbContainer extends Component {
                     src={this.state.result.poster_path}
                     videoId={this.state.trailerId}
                     id={this.state.result.id}
-                    popularity={this.state.result.popularity}
+                    description={this.state.result.overview}
                     released={this.state.result.release_date}
                     onClick={this.handleMOviefavourites}
                     favList={this.state.newMovieTilte}
