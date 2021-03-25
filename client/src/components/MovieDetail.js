@@ -10,7 +10,7 @@ function MovieDetail(props) {
         style={{ margin: "0 auto" }}
       />
       <button onClick={props.onClick} data-title={props.title}>
-      💥🎬💥
+        💥🎬💥
       </button>
       <h3>id: {props.id}</h3>
       <h3>popularity: {props.popularity}</h3>
