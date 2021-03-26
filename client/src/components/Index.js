@@ -94,29 +94,7 @@ class OmdbContainer extends Component {
     return (
       <Container>
         <Row>
-          <Col size="md-6">
-            <Card
-              title={this.state.result.title || "Search for a Movie to Begin"}
-            >
-              {this.state.result.title ? (
-                <div>
-                  <MovieDetail
-                    title={this.state.result.title}
-                    src={this.state.result.poster_path}
-                    videoId={this.state.trailerId}
-                    id={this.state.result.id}
-                    description={this.state.result.overview}
-                    released={this.state.result.release_date}
-                    onClick={this.handleMOviefavourites}
-                    favList={this.state.newMovieTilte}
-                  />
-                </div>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-          <Col size="md-3">
+          <Col size="md-12">
             <Card heading="Search">
               <SearchForm
                 value={this.state.search}
@@ -124,8 +102,10 @@ class OmdbContainer extends Component {
                 handleFormSubmit={this.handleFormSubmit}
               />
             </Card>
-            <Col size="md-">
-              <div>
+            <Card
+              title={this.state.result.title || "Search for a Movie to Begin"}
+            >
+              <div id="trailerCard">
                 {this.state.result.title ? (
                   <div>
                     <YouTube
@@ -138,7 +118,25 @@ class OmdbContainer extends Component {
                   <h3> </h3>
                 )}
               </div>
-            </Col>
+
+              {this.state.result.title ? (
+                <div id="movieInfoCard">
+                  <MovieDetail
+                    title={this.state.result.title}
+                    src={this.state.result.poster_path}
+                    videoId={this.state.trailerId}
+                    id={this.state.result.id}
+                    popularity={this.state.result.popularity}
+                    released={this.state.result.release_date}
+                    onClick={this.handleMOviefavourites}
+                    favList={this.state.newMovieTilte}
+                    
+                  />
+                </div>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </Card>
           </Col>
         </Row>
       </Container>
