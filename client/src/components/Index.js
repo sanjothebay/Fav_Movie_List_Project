@@ -7,7 +7,6 @@ import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
-import LoginScreen from "./LoginScreen";
 import Axios from "axios";
 
 // or import movieTrailer from 'movie-trailer'
@@ -30,16 +29,6 @@ class OmdbContainer extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-
-  //  // When this component mounts, search for the movie "The Matrix"
-  //   componentDidMount() {
-  //     this.searchMovies("soul");
-  //   }
-
-  // When this component mounts, get the title"
-  // componentDidMount() {
-  //   this.getfavoriteMovieAdd(this.state.newTitle);
-  // }
 
   searchMovies = async (query) => {
     API.search(query)
@@ -72,18 +61,17 @@ class OmdbContainer extends Component {
     this.setState({
       newMovieTilte: copyOfFavouritesList,
     });
+    console.log(this.state.result);
     console.log(newMovieTilte);
     console.log(copyOfFavouritesList);
-    this.favoriteMovieAdd(newMovieTilte);
+    this.favoriteMovieAdd(this.state.result);
   };
 
-  favoriteMovieAdd = (newTitle) => {
+  favoriteMovieAdd = (data) => {
     Axios({
       method: "POST",
       url: "/api/insert",
-      data: {
-        title: newTitle,
-      },
+      data
     }).then((res) => console.log(res));
   };
 
