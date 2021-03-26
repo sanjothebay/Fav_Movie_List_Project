@@ -1,0 +1,58 @@
+body{
+    background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+}
+
+footer{
+    background-image: url("https://previews.123rf.com/images/davidfranklinstudioworks/davidfranklinstudioworks1603/davidfranklinstudioworks160300042/54149988-admit-one-cinema-tickets-background-with-one-unique-blue-ticket.jpg");
+}
+
+#footerText, #navBttn, #appLogo{
+    color: rgb(66, 65, 65);
+    background-color: rgba(223, 224, 200, 0.918);
+    border-radius: 30px;
+    border: solid rgba(255, 0, 0, 0.637) 2px;
+    filter: brightness(120%);
+}
+
+#footerText{
+    width: 300px;
+}
+
+#navBttn{
+    margin: 0 40px 0 40px;
+    width: 230px;
+    text-align: center;
+}
+
+.allNav{
+    background-image: url("https://previews.123rf.com/images/davidfranklinstudioworks/davidfranklinstudioworks1603/davidfranklinstudioworks160300042/54149988-admit-one-cinema-tickets-background-with-one-unique-blue-ticket.jpg");
+}
+
+#appLogo{
+    color: black;
+    border-radius: 10px;
+    border: solid rgb(223, 224, 200) 2px;
+    filter: brightness(120%);
+}
+
+#resultHeader{
+    background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+}
+
+#searchCard{
+    align-items: center;
+    width: 1400px;
+    background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+}
+
+#trailerCard{
+    background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+    width: 640px;
+    float: left;
+}
+
+#movieInfoCard{
+    background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+    width: 740px;
+    float: right;
+}

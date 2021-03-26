@@ -3,7 +3,7 @@ import React from "react";
 function SearchForm(props) {
   return (
     <form>
-      <div className="form-group">
+      <div className="form-group" id="searchCard">
         <label htmlFor="search">Search:</label>
         <input
           onChange={props.handleInputChange}
@@ -11,7 +11,7 @@ function SearchForm(props) {
           name="search"
           type="text"
           className="form-control"
-          placeholder="Search For a Movie"
+          placeholder="Search for a Movie"
           id="search"
         />
         <br />

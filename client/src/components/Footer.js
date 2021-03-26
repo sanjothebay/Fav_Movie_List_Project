@@ -4,9 +4,9 @@ function Footer(props) {
   return (
 
     <footer id="sticky-footer" className="py-4 bg-dark text-white-50">
-    <footer className="container text-center">
+    <div className="container text-center" id="footerText">
       <small>Movie Watch List &copy; Eduardo, JC, and Luis</small>
-    </footer>
+    </div>
   </footer>
   
   );
