@@ -12,7 +12,7 @@ function FriendWatchList() {
         <th>#</th>
         <th>Movie Name</th>
         <th>Genre</th>
-        <th>API Rating</th>
+        <th>Score</th>
         <th>My Rating</th>
         <th>Add to my WatchList</th>
       </tr>
@@ -22,7 +22,7 @@ function FriendWatchList() {
         <td>1</td>
         <td>Movie Name 1</td>
         <td>Genre 1</td>
-        <td>API Rating 1</td>
+        <td>Score 1</td>
         <td>My Rating 1</td>
         <td>
           <Button variant="info">Add</Button>
@@ -32,7 +32,7 @@ function FriendWatchList() {
         <td>2</td>
         <td>Movie Name 2</td>
         <td>Genre 2</td>
-        <td>API Rating 2</td>
+        <td>Score 2</td>
         <td>My Rating 2</td>
         <td>
           <Button variant="info">Add</Button>
@@ -42,7 +42,7 @@ function FriendWatchList() {
         <td>3</td>
         <td>Movie Name 3</td>
         <td>Genre 3</td>
-        <td>API Rating 3</td>
+        <td>Score 3</td>
         <td>My Rating 3</td>
         <td>
           <Button variant="info">Add</Button>
