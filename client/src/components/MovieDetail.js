@@ -15,13 +15,10 @@ function MovieDetail(props) {
       <button onClick={props.onClick} data-title={props.title}>
         💥🎬💥
       </button>
-      <h3>id: {props.id}</h3>
       <h3>Movie name: {props.popularity}</h3>
-      <h3>popularity: {props.popularity}</h3>
       <h3>Released: {props.released}</h3>
-      <h3>Revenue: {props.popularity}</h3>
       <h3>Genre: {props.popularity}</h3>
-      <h3>Homepage: {props.popularity}</h3>
+      <h3>Director: {props.popularity}</h3>
       <h3>Overview: {props.popularity}</h3>
     </div>
   );
