@@ -40,7 +40,7 @@ class OmdbContainer extends Component {
   // componentDidMount() {
   //   this.getfavoriteMovieAdd(this.state.newTitle);
   // }
-  
+
   searchMovies = async (query) => {
     API.search(query)
       .then((res) => {
@@ -87,8 +87,6 @@ class OmdbContainer extends Component {
     }).then((res) => console.log(res));
   };
 
-
-
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -107,8 +105,6 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
-        
-
         <Row>
           <Col size="md-6">
             <Card
@@ -121,7 +117,7 @@ class OmdbContainer extends Component {
                     src={this.state.result.poster_path}
                     videoId={this.state.trailerId}
                     id={this.state.result.id}
-                    popularity={this.state.result.popularity}
+                    description={this.state.result.overview}
                     released={this.state.result.release_date}
                     onClick={this.handleMOviefavourites}
                     favList={this.state.newMovieTilte}
