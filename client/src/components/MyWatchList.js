@@ -40,7 +40,7 @@ function MyWatchList() {
       <tbody>
         {favMovies.map((doc) => (
           <tr>
-            <td>1</td>
+            <td>#</td>
             <td>{doc.title}</td>
             <td>Genre 1</td>
             <td>API Rating 1</td>
