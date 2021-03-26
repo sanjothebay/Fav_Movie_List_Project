@@ -2,15 +2,6 @@ var express = require("express");
 var router = express.Router();
 const Title = require("../models/index");
 
-// home page
-router.get("/", function (req, res, next) {
-  res.render("index", {
-    title: " Cool,  MOvies!",
-    condition: true,
-    anyArray: [1, 2, 3],
-  });
-});
-
 router.get("/get-data", function (req, res) {
   Title.find(function (err, docs) {
     if (err) res.json(doc);
@@ -24,9 +15,16 @@ router.post("/insert", (req, res) => {
     if (err) throw err;
     if (doc) res.send("Movie Already Exists");
 
+    const {title, poster_path, popularity, release_date } = req.body;
+
     const newTitle = new Title({
-      title: req.body.title,
+      title,
+      poster_path,
+      popularity,
+      release_date,
+      
     });
+    console.log(newTitle)
     await newTitle.save();
     res.send("Movie Created");
   });
