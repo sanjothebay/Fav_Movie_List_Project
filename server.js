@@ -50,6 +50,7 @@ app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
+app.use("/api", router);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
@@ -57,11 +58,13 @@ require("./passportConfig")(passport);
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.status(200).json({message: "User does not exist"});
+    if (!user) res.status(200).json({ message: "User does not exist" });
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.status(200).json({message: "Successfully authenticated", user: req.user._id});
+        res
+          .status(200)
+          .json({ message: "Successfully authenticated", user: req.user._id });
         console.log(req.user);
       });
     }
@@ -85,10 +88,7 @@ app.post("/register", (req, res) => {
 });
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-  
 });
-
-
 
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 /// Start the API server

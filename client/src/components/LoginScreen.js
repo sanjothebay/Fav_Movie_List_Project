@@ -29,12 +29,12 @@ function LoginScreen() {
       withCredentials: true,
       url: "/login",
     }).then((res) => {
-      console.log(res)
-      if (res.data.message === "Successfully authenticated"){
-        console.log(res.data, "success")
-        localStorage.setItem("authenticatedUser", res.data.user)
+      console.log(res);
+      if (res.data.message === "Successfully authenticated") {
+        console.log(res.data, "success");
+        localStorage.setItem("authenticatedUser", res.data.user);
       } else {
-        console.log(res.data, "failed")
+        console.log(res.data, "failed");
       }
     });
   };

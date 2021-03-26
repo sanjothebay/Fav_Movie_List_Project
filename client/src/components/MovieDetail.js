@@ -12,6 +12,9 @@ function MovieDetail(props) {
         src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2` + props.src}
         style={{ margin: "0 auto", height:"390px"}}
       />
+      <button onClick={props.onClick} data-title={props.title}>
+        💥🎬💥
+      </button>
       <h3>id: {props.id}</h3>
       <h3>Movie name: {props.popularity}</h3>
       <h3>popularity: {props.popularity}</h3>

@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import {Link, useLocation} from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import { Link, useLocation } from "react-router-dom";
 
 function NavTab(props) {
   const location = useLocation();
@@ -15,11 +15,18 @@ function NavTab(props) {
         } id="appLogo">Movie Watch List</Navbar.Brand>
       </Link>
 
+      <Nav className="mr-auto">
 
-        <Nav className="mr-auto">
+      <Link to="/">
+        <Navbar.Brand
+          className={location.pathname === "/" ? "nav-link active" : "nav-link"} id="navBttn"
+        >
+          Log In
+        </Navbar.Brand>
+      </Link>
 
-          <Link to="/home">
-            <Navbar.Brand 
+        <Link to="/home">
+          <Navbar.Brand
             className={
               location.pathname === "/home" ? "nav-link active" : "nav-link"
             } id="navBttn">Home</Navbar.Brand >
@@ -51,8 +58,3 @@ function NavTab(props) {
   );
 }
 export default NavTab;
-
-
-
-
-
