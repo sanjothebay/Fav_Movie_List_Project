@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginStyles.css";
 import Axios from "axios";
+import { Route, Redirect, useLocation } from "react-router";
 
 function LoginScreen() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -8,6 +9,10 @@ function LoginScreen() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
+  const { state } = useLocation();
+  const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
+
+
   const register = () => {
     Axios({
       method: "POST",
@@ -38,6 +43,38 @@ function LoginScreen() {
       }
     });
   };
+
+  function MovieDetail({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={(location) => {
+          return login.isAuthenticated === true ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location },
+              }}
+            />
+          );
+        }}
+      />
+    );
+  }
+
+  function Login() {
+
+
+      login(() => {
+        setRedirectToReferrer(true);
+      });
+      if (redirectToReferrer === true) {
+        return <Redirect to={state?.from || "/home"} />;
+      }
+  }
+
   const getUser = () => {
     Axios({
       method: "GET",
@@ -73,7 +110,8 @@ function LoginScreen() {
           placeholder="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
-        <button onClick={login}>Submit</button>
+        <button onClick={Login}>Submit</button>
+        <MovieDetail path="/home" />
       </div>
 
       <div className="test">
