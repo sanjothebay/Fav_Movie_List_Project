@@ -99,7 +99,7 @@ function LoginScreen() {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
-        {setRedirectToReferrer ? <Redirect to="/home" /> : null}
+        {redirectToReferrer ? <Redirect to="/home" /> : null}
       </div>
 
       <div className="test">
