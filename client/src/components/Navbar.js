@@ -8,12 +8,12 @@ function NavTab(props) {
   return (
       <Navbar bg="dark" variant="dark" className="allNav"> 
 
-      <Link to="/home"> 
+      {/* <Link to="/home"> 
         <Navbar.Brand 
         className={
           location.pathname === "/home" ? "nav-link active" : "nav-link"
         } id="appLogo">Movie Watch List</Navbar.Brand>
-      </Link>
+      </Link> */}
 
       <Nav className="mr-auto">
 
@@ -25,12 +25,12 @@ function NavTab(props) {
         </Navbar.Brand>
       </Link>
 
-        <Link to="/home">
+        {/* <Link to="/home">
           <Navbar.Brand
             className={
               location.pathname === "/home" ? "nav-link active" : "nav-link"
             } id="navBttn">Home</Navbar.Brand >
-          </Link>
+          </Link> */}
 
           <Link to="/self">
             <Navbar.Brand 
