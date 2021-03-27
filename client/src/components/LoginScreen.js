@@ -12,7 +12,6 @@ function LoginScreen() {
   const { state } = useLocation();
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
 
-
   const register = () => {
     Axios({
       method: "POST",
@@ -39,36 +38,30 @@ function LoginScreen() {
         console.log(res.data, "success");
         localStorage.setItem("authenticatedUser", res.data.user);
         setRedirectToReferrer(true);
-        console.log(redirectToReferrer)
-      if (redirectToReferrer === true) {
-        return (< Redirect to = "/home"  />)
-      }
-      } else {
-        console.log(res.data, "failed");
+        console.log(redirectToReferrer);
       }
     });
   };
 
-  function MovieDetail({ children, ...rest }) {
-    return (
-      <Route
-        {...rest}
-        render={(location) => {
-          return login.isAuthenticated === true ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/home",
-                state: { from: location },
-              }}
-            />
-          );
-        }}
-      />
-    );
-  }
-
+  // function MovieDetail({ children, ...rest }) {
+  //   return (
+  //     <Route
+  //       {...rest}
+  //       render={(location) => {
+  //         return login.isAuthenticated === true ? (
+  //           children
+  //         ) : (
+  //           <Redirect
+  //             to={{
+  //               pathname: "/home",
+  //               state: { from: location },
+  //             }}
+  //           />
+  //         );
+  //       }}
+  //     />
+  //   );
+  // }
 
   const getUser = () => {
     Axios({
@@ -106,7 +99,7 @@ function LoginScreen() {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
-        <MovieDetail path="/home" />
+        {setRedirectToReferrer ? <Redirect to="/home" /> : null}
       </div>
 
       <div className="test">
