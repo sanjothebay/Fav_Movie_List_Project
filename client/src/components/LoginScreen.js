@@ -54,7 +54,7 @@ function LoginScreen() {
           ) : (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: "/home",
                 state: { from: location },
               }}
             />
