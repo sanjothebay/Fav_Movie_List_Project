@@ -38,6 +38,11 @@ function LoginScreen() {
       if (res.data.message === "Successfully authenticated") {
         console.log(res.data, "success");
         localStorage.setItem("authenticatedUser", res.data.user);
+        setRedirectToReferrer(true);
+        console.log(redirectToReferrer)
+      if (redirectToReferrer === true) {
+        return (< Redirect to = "/home"  />)
+      }
       } else {
         console.log(res.data, "failed");
       }
@@ -64,16 +69,6 @@ function LoginScreen() {
     );
   }
 
-  function Login() {
-
-
-      login(() => {
-        setRedirectToReferrer(true);
-      });
-      if (redirectToReferrer === true) {
-        return <Redirect to={state?.from || "/home"} />;
-      }
-  }
 
   const getUser = () => {
     Axios({
@@ -110,7 +105,7 @@ function LoginScreen() {
           placeholder="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
-        <button onClick={Login}>Submit</button>
+        <button onClick={login}>Submit</button>
         <MovieDetail path="/home" />
       </div>
 
