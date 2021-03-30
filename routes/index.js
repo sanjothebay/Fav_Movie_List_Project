@@ -15,16 +15,22 @@ router.post("/insert", (req, res) => {
     if (err) throw err;
     if (doc) res.send("Movie Already Exists");
 
-    const {title, poster_path, popularity, release_date } = req.body;
+    const {
+      title,
+      poster_path,
+      popularity,
+      release_date,
+      vote_average,
+    } = req.body;
 
     const newTitle = new Title({
       title,
       poster_path,
       popularity,
       release_date,
-      
+      vote_average,
     });
-    console.log(newTitle)
+    console.log(newTitle);
     await newTitle.save();
     res.send("Movie Created");
   });
