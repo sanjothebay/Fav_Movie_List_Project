@@ -43,11 +43,12 @@ function MyWatchList() {
       <thead>
         <tr>
           <th>🎬</th>
-          <th>Movie Name</th>
-          <th>Theater Rating</th>
-          <th>Theater Score</th>
-          <th>My Rating</th>
-          <th>Watched</th>
+          <th>Movie Name 🎥</th>
+          <th>Theater Rating 📽️</th>
+          <th>Theater Score 🎞️</th>
+          <th>My Rating ⭐</th>
+          <th>Watched 📺</th>
+          <th>📼</th>
         </tr>
       </thead>
       <tbody>

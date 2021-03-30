@@ -83,6 +83,7 @@ function LoginScreen() {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <button onClick={register}>Submit</button>
@@ -96,6 +97,7 @@ function LoginScreen() {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
