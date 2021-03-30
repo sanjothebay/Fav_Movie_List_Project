@@ -130,6 +130,8 @@ class OmdbContainer extends Component {
                     released={this.state.result.release_date}
                     onClick={this.handleMOviefavourites}
                     favList={this.state.newMovieTilte}
+                    overview={this.state.result.overview}
+
                     
                   />
                 </div>

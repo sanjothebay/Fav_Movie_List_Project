@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginStyles.css";
 import Axios from "axios";
+import { Route, Redirect, useLocation } from "react-router";
 
 function LoginScreen() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -8,6 +9,9 @@ function LoginScreen() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
+  const { state } = useLocation();
+  const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
+
   const register = () => {
     Axios({
       method: "POST",
@@ -33,11 +37,32 @@ function LoginScreen() {
       if (res.data.message === "Successfully authenticated") {
         console.log(res.data, "success");
         localStorage.setItem("authenticatedUser", res.data.user);
-      } else {
-        console.log(res.data, "failed");
+        setRedirectToReferrer(true);
+        console.log(redirectToReferrer);
       }
     });
   };
+
+  // function MovieDetail({ children, ...rest }) {
+  //   return (
+  //     <Route
+  //       {...rest}
+  //       render={(location) => {
+  //         return login.isAuthenticated === true ? (
+  //           children
+  //         ) : (
+  //           <Redirect
+  //             to={{
+  //               pathname: "/home",
+  //               state: { from: location },
+  //             }}
+  //           />
+  //         );
+  //       }}
+  //     />
+  //   );
+  // }
+
   const getUser = () => {
     Axios({
       method: "GET",
@@ -58,6 +83,7 @@ function LoginScreen() {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <button onClick={register}>Submit</button>
@@ -71,9 +97,11 @@ function LoginScreen() {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
+        {redirectToReferrer ? <Redirect to="/home" /> : null}
       </div>
 
       <div className="test">

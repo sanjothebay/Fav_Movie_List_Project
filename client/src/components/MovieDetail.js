@@ -3,9 +3,6 @@ import React from "react";
 function MovieDetail(props) {
   return (
     <div className="text-center">
-      <button onClick={props.onClick} data-title={props.title}>
-        Add to My Watchlist
-      </button>
       <img
         alt={props.title}
         className="img-fluid"
@@ -15,11 +12,9 @@ function MovieDetail(props) {
       <button onClick={props.onClick} data-title={props.title}>
         💥🎬💥
       </button>
-      <h3>Movie name: {props.popularity}</h3>
-      <h3>Released: {props.released}</h3>
-      <h3>Genre: {props.popularity}</h3>
-      <h3>Director: {props.popularity}</h3>
-      <h3>Overview: {props.popularity}</h3>
+      <h3>{props.title}</h3>
+      <h3>{props.released}</h3>
+      <h3>{props.overview}</h3>
     </div>
   );
 }
