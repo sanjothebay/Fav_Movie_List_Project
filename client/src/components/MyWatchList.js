@@ -6,6 +6,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import ReactStars from "react-rating-stars-component";
+
 
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
@@ -23,6 +25,18 @@ function MyWatchList() {
   useEffect(() => {
     getfavoriteMovieAdd();
   }, []);
+
+  const thirdExample = {
+    size: 30,
+    count: 5,
+    isHalf: false,
+    value: 0,
+    color: "black",
+    activeColor: "red",
+    onChange: newValue => {
+      console.log(`Example 3: new value is ${newValue}`);
+    }
+  };
 
   return (
     <Table striped bordered hover>
@@ -43,7 +57,7 @@ function MyWatchList() {
             <td>{doc.title}</td>
             <td>{doc.vote_average}</td>
             <td>{doc.popularity}</td>
-            <td>My Rating 1</td>
+            <td><ReactStars {...thirdExample}/></td>
             <td>
               <InputGroup className="mb-3">
                 <DropdownButton
