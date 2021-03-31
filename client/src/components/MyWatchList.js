@@ -12,6 +12,7 @@ import ReactStars from "react-rating-stars-component";
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
 
+
   const getfavoriteMovieAdd = () => {
     Axios({
       method: "GET",
@@ -25,10 +26,10 @@ function MyWatchList() {
   const deletefavoriteMovie = () => {
     Axios({
       method: "DELETE",
-      url: "/api/delete/:id",
+      url: "/api/delete/:_id",
     }).then((res) => {
       console.log(res, "these are the Deleted docs");
-      deleteFavMovies(res.data.docs);
+      setFavMovies(res.data.docs);
     });
   };
 
@@ -84,7 +85,7 @@ function MyWatchList() {
               </InputGroup>
             </td>
             <td>
-              <Button onClick={""} variant="danger">Remove</Button>
+              <Button onClick={deletefavoriteMovie} variant="danger">Remove</Button>
             </td>
           </tr>
         ))}

@@ -10,8 +10,8 @@ router.get("/get-data", function (req, res) {
   });
 });
 
-router.delete('/delete/:id', function (req, res) {
-  Title.findOneAndDelete({ _id: req.params.id })
+router.delete('/delete/:_id', function (req, res) {
+  Title.findOneAndDelete({ id: req.params._id })
     .then((docs) => {
       if (!docs) {
         return res.status(404).json({ message: 'No title with this id!' });
