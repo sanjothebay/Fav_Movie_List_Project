@@ -24,11 +24,11 @@ function MyWatchList() {
 
   const deletefavoriteMovie = () => {
     Axios({
-      method: "GET",
+      method: "DELETE",
       url: "/api/delete/:id",
     }).then((res) => {
       console.log(res, "these are the Deleted docs");
-      setFavMovies(res.data.docs);
+      deleteFavMovies(res.data.docs);
     });
   };
 
@@ -84,7 +84,7 @@ function MyWatchList() {
               </InputGroup>
             </td>
             <td>
-              <Button onClick={deletefavoriteMovie} variant="danger">Remove</Button>
+              <Button onClick={""} variant="danger">Remove</Button>
             </td>
           </tr>
         ))}

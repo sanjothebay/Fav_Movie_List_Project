@@ -11,8 +11,21 @@ router.get("/get-data", function (req, res) {
 });
 
 router.delete('/delete/:id', function (req, res) {
-  res.send('Got a DELETE request at /user')
-})
+  Title.findOneAndDelete({ _id: req.params.id })
+    .then((docs) => {
+      if (!docs) {
+        return res.status(404).json({ message: 'No title with this id!' });
+      }
+    })
+    .then(() => {
+      res.json({ message: 'Title deleted!' });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
 router.post("/insert", (req, res) => {
   Title.findOne({ title: req.body.title }, async (err, doc) => {
