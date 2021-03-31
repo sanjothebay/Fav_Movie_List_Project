@@ -10,11 +10,13 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 const User = require("./user");
+const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
+
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/favourite_movie_list",
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
