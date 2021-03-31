@@ -10,6 +10,10 @@ router.get("/get-data", function (req, res) {
   });
 });
 
+router.delete('/delete/:id', function (req, res) {
+  res.send('Got a DELETE request at /user')
+})
+
 router.post("/insert", (req, res) => {
   Title.findOne({ title: req.body.title }, async (err, doc) => {
     if (err) throw err;

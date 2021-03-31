@@ -17,7 +17,17 @@ function MyWatchList() {
       method: "GET",
       url: "/api/get-data",
     }).then((res) => {
-      console.log(res, "these are the docs from teh backend");
+      console.log(res, "these are the docs from the backend");
+      setFavMovies(res.data.docs);
+    });
+  };
+
+  const deletefavoriteMovie = () => {
+    Axios({
+      method: "GET",
+      url: "/api/delete/:id",
+    }).then((res) => {
+      console.log(res, "these are the Deleted docs");
       setFavMovies(res.data.docs);
     });
   };
@@ -25,6 +35,7 @@ function MyWatchList() {
   useEffect(() => {
     getfavoriteMovieAdd();
   }, []);
+
 
   const thirdExample = {
     size: 30,
@@ -73,7 +84,7 @@ function MyWatchList() {
               </InputGroup>
             </td>
             <td>
-              <Button variant="danger">Remove</Button>
+              <Button onClick={deletefavoriteMovie} variant="danger">Remove</Button>
             </td>
           </tr>
         ))}
