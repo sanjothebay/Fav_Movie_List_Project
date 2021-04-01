@@ -35,7 +35,7 @@ class OmdbContainer extends Component {
       .then((res) => {
         console.log(res);
         movieTrailer(query, { id: true }).then((trailer) => {
-          this.setState({ result: res.data.results[0], trailerId: trailer });
+          this.setState({ result: res.data.results[0], trailerId: trailer, search: "" });
         });
       })
 
