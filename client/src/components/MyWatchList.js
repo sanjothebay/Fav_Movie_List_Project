@@ -21,8 +21,7 @@ function MyWatchList() {
     });
   };
 
-  const deletefavoriteMovie = (event) => {
-    event.stopPropagation();
+  const deletefavoriteMovie = () => {
     Axios({
       method: "DELETE",
       url: "/api/delete/:_id",
