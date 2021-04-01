@@ -8,10 +8,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import ReactStars from "react-rating-stars-component";
 
-
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
-
 
   const getfavoriteMovieAdd = () => {
     Axios({
@@ -23,20 +21,20 @@ function MyWatchList() {
     });
   };
 
-  const deletefavoriteMovie = () => {
+  const deletefavoriteMovie = (event) => {
+    event.stopPropagation();
     Axios({
       method: "DELETE",
       url: "/api/delete/:_id",
     }).then((res) => {
-      console.log(res, "these are the Deleted docs");
-      setFavMovies(res.data.docs);
+      console.log(res, "Deleted Docs");
+      getfavoriteMovieAdd()
     });
   };
 
   useEffect(() => {
     getfavoriteMovieAdd();
   }, []);
-
 
   const thirdExample = {
     size: 30,
@@ -45,9 +43,9 @@ function MyWatchList() {
     value: 0,
     color: "black",
     activeColor: "red",
-    onChange: newValue => {
+    onChange: (newValue) => {
       console.log(`Example 3: new value is ${newValue}`);
-    }
+    },
   };
 
   return (
@@ -70,7 +68,9 @@ function MyWatchList() {
             <td>{doc.title}</td>
             <td>{doc.vote_average}</td>
             <td>{doc.popularity}</td>
-            <td><ReactStars {...thirdExample}/></td>
+            <td>
+              <ReactStars {...thirdExample} />
+            </td>
             <td>
               <InputGroup className="mb-3">
                 <DropdownButton
@@ -85,7 +85,9 @@ function MyWatchList() {
               </InputGroup>
             </td>
             <td>
-              <Button onClick={deletefavoriteMovie} variant="danger">Remove</Button>
+              <Button onClick={deletefavoriteMovie} variant="danger">
+                Delete
+              </Button>
             </td>
           </tr>
         ))}

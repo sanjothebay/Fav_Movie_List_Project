@@ -10,22 +10,21 @@ router.get("/get-data", function (req, res) {
   });
 });
 
-router.delete('/delete/:_id', function (req, res) {
-  Title.findOneAndDelete({ id: req.params._id })
+router.delete("/delete/:_id", function (req, res) {
+  Title.findOneAndDelete({ id: req.params.id })
     .then((docs) => {
       if (!docs) {
-        return res.status(404).json({ message: 'No title with this id!' });
+        return res.status(404).json({ message: "No title with this id!" });
       }
     })
     .then(() => {
-      res.json({ message: 'Title deleted!' });
+      res.send("Movie deleted");
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 router.post("/insert", (req, res) => {
   Title.findOne({ title: req.body.title }, async (err, doc) => {
