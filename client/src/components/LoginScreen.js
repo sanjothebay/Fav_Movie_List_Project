@@ -22,6 +22,7 @@ function LoginScreen() {
       withCredentials: true,
       url: "/register",
     }).then((res) => console.log(res));
+    window.location.reload(false)
   };
 
   const login = () => {
@@ -95,7 +96,6 @@ function LoginScreen() {
         <input
           placeholder="username"
           onChange={(e) => setLoginUsername(e.target.value)}
-          
         />
         <input
           placeholder="password"
