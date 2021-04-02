@@ -23,6 +23,7 @@ function LoginScreen() {
       url: "/register",
     }).then((res) => console.log(res));
   };
+
   const login = () => {
     Axios({
       method: "POST",
@@ -94,6 +95,7 @@ function LoginScreen() {
         <input
           placeholder="username"
           onChange={(e) => setLoginUsername(e.target.value)}
+          
         />
         <input
           placeholder="password"
