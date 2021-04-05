@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Title = require("../models/index");
+const Star = require("../models/index");
 
 router.get("/get-data", function (req, res) {
   Title.find(function (err, docs) {
@@ -37,6 +38,7 @@ router.post("/insert", (req, res) => {
       popularity,
       release_date,
       vote_average,
+      star,
     } = req.body;
 
     const newTitle = new Title({
@@ -45,12 +47,38 @@ router.post("/insert", (req, res) => {
       popularity,
       release_date,
       vote_average,
+      star,
     });
     console.log(newTitle);
     await newTitle.save();
     res.send("Movie Created");
   });
 });
+
+router.post("/insertStar", (req, res) => {
+  Star.create({ star: req.body.star }, async (err, doc) => {
+    if (err) throw err;
+    if (doc) res.send("Rating Already Exists");
+    const {
+ 
+      star,
+    } = req.body;
+
+    const newStar = new Star({
+
+      star,
+    });
+    console.log(newStar);
+    await newStar.save();
+    res.send("Rating Created");
+  });
+});
+
+
+router.get("/insertStar", (req, res) => {
+  res.send(req.star); // The req.user stores the entire user that has been authenticated inside of it.
+});
+
 router.get("/insert", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });

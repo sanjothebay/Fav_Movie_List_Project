@@ -10,6 +10,8 @@ import ReactStars from "react-rating-stars-component";
 
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
+  const [starRate, setstarRate] = useState(0);
+  
 
   const getfavoriteMovieAdd = () => {
     Axios({
@@ -35,17 +37,28 @@ function MyWatchList() {
     getfavoriteMovieAdd();
   }, []);
 
+
   const thirdExample = {
     size: 30,
     count: 5,
     isHalf: false,
-    value: 0,
+    value: starRate,
     color: "black",
     activeColor: "red",
     onChange: (newValue) => {
-      console.log(`Example 3: new value is ${newValue}`);
+      console.log(`New value is ${newValue}`);
+      Axios({
+        method: "GET",
+        url: "/api/insertStar",
+      }).then((res) => {
+        console.log(res, `these are the Rating Stars ${newValue}`);
+        setstarRate(newValue);
+        console.log(setstarRate);
+      });
     },
   };
+
+
 
   return (
     <Table striped bordered hover>
