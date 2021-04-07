@@ -34,17 +34,6 @@ function NavTab() {
       </Link> */}
 
       <Nav className="mr-auto">
-        <Link to="/">
-          <Navbar.Brand
-            className={
-              location.pathname === "/" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            Log In
-          </Navbar.Brand>
-        </Link>
-
         <Link to="/home">
           <Navbar.Brand
             className={
@@ -52,7 +41,7 @@ function NavTab() {
             }
             id="navBttn"
           >
-            Home
+            Search Movie
           </Navbar.Brand>
         </Link>
 
@@ -74,7 +63,7 @@ function NavTab() {
             }
             id="navBttn"
           >
-            My Friends' Watch List
+            My Friends Watch List
           </Navbar.Brand>
         </Link>
 
@@ -86,6 +75,17 @@ function NavTab() {
             id="navBttn"
           >
             Stats
+          </Navbar.Brand>
+        </Link>
+
+        <Link to="/">
+          <Navbar.Brand
+            className={
+              location.pathname === "/" ? "nav-link active" : "nav-link"
+            }
+            id="navBttn"
+          >
+            Exit
           </Navbar.Brand>
         </Link>
       </Nav>
