@@ -1,7 +1,11 @@
 import React from "react";
+import Container from "./Container";
+import NavTab from "./Navbar";
 
 function MovieDetail(props) {
   return (
+    <Container>
+      <NavTab/>
     <div className="text-center">
       <img
         alt={props.title}
@@ -16,6 +20,7 @@ function MovieDetail(props) {
       <h3>{props.released}</h3>
       <h3>{props.overview}</h3>
     </div>
+    </Container>
   );
 }
 

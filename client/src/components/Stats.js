@@ -1,10 +1,14 @@
 import React from "react";
 import Plot from "react-plotly.js"
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "./Container";
+import NavTab from "./Navbar";
 
 
 function Stats() {
   return (
+    <Container>
+      <NavTab/>
     <div className="contactcard">
       <h1>Stats will be here</h1>
       <Plot
@@ -24,6 +28,7 @@ function Stats() {
         layout={ {width: 1000, heigh: 500, title: "Genre %"} }
       />
     </div>
+    </Container>
   );
 }
 export default Stats;

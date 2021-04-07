@@ -8,6 +8,7 @@ import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
 import YouTube from "react-youtube";
 import Axios from "axios";
+import NavTab from "./Navbar";
 
 // or import movieTrailer from 'movie-trailer'
 const movieTrailer = require("movie-trailer");
@@ -97,6 +98,7 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
+        <NavTab/>
         <Row>
           <Col size="md-12">
             <Card heading="Search">

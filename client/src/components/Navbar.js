@@ -21,7 +21,7 @@ const options = {
 const darkmode = new Darkmode(options);
 darkmode.showWidget();
 
-function NavTab(props) {
+function NavTab() {
   const location = useLocation();
 
   return (
@@ -45,12 +45,12 @@ function NavTab(props) {
           </Navbar.Brand>
         </Link>
 
-        {/* <Link to="/home">
+        <Link to="/home">
           <Navbar.Brand
             className={
               location.pathname === "/home" ? "nav-link active" : "nav-link"
             } id="navBttn">Home</Navbar.Brand >
-          </Link> */}
+          </Link>
 
         <Link to="/self">
           <Navbar.Brand

@@ -65,16 +65,17 @@ function LoginScreen() {
   //   );
   // }
 
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  };
+  // const getUser = () => {
+  //   Axios({
+  //     method: "GET",
+  //     withCredentials: true,
+  //     url: "/user",
+  //   }).then((res) => {
+  //     setData(res.data);
+  //     console.log(res.data);
+  //   });
+  // };
+  
   return (
     <div className="App">
       <div>
@@ -107,9 +108,9 @@ function LoginScreen() {
       </div>
 
       <div className="test">
-        <h1>Get User</h1>
+        {/* <h1>Get User</h1>
         <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
+        {data ? <h1>Welcome Back {data.username}</h1> : null} */}
       </div>
     </div>
   );
