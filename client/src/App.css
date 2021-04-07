@@ -49,12 +49,12 @@ footer {
 
 #trailerCard {
   background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
-  width: 640px;
+  width: 50%;
   float: left;
 }
 
 #movieInfoCard {
   background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
-  width: 740px;
+  width: 50%;
   float: right;
 }
