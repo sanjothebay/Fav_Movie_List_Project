@@ -16,16 +16,16 @@ const PORT = process.env.PORT || 4000;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 
 mongoose.connect(
-  process.env.MONGODB_URI,
+  process.env.MONGODB_URI || "mongodb://localhost/favourite_movie_list",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
   },
-  () => {
-    console.log("Mongoose Is Connected");
-  }
+  // () => {
+  //   console.log("Mongoose Is Connected");
+  // }
 );
 
 // Middleware
