@@ -72,7 +72,6 @@ router.put("/updateStars/:_id", function (req, res) {
     });
 });
 
-
 router.get("/insertStar", (req, res) => {
   res.send(req.star); // The req.user stores the entire user that has been authenticated inside of it.
 });

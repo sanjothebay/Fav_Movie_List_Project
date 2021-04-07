@@ -22,7 +22,7 @@ function LoginScreen() {
       withCredentials: true,
       url: "/register",
     }).then((res) => console.log(res));
-    window.location.reload(false)
+    window.location.reload(false);
   };
 
   const login = () => {
@@ -75,7 +75,7 @@ function LoginScreen() {
   //     console.log(res.data);
   //   });
   // };
-  
+
   return (
     <div className="App">
       <div>

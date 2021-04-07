@@ -62,71 +62,71 @@ function MyWatchList() {
 
   return (
     <Container>
-      <NavTab/>
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>🎬</th>
-          <th>Movie Name 🎥</th>
-          <th>Theater Rating 📽️</th>
-          <th>Theater Score 🎞️</th>
-          <th>My Rating ⭐</th>
-          <th>Watched 📺</th>
-          <th>📼</th>
-        </tr>
-      </thead>
-      <tbody>
-        {favMovies.map((doc) => (
-          <tr key={doc._id}>
-            <td>🎬</td>
-            <td>
-              <img
-                className="img-fluid"
-                src={
-                  `https://www.themoviedb.org/t/p/w600_and_h900_bestv2` +
-                  doc.poster_path
-                }
-                style={{ margin: "0 auto", height: "125px" }}
-              />{" "}
-              {doc.title}
-            </td>
-            <td>{doc.vote_average}</td>
-            <td>{doc.popularity}</td>
-            <td>
-              <ReactStars
-                id={doc._id}
-                ref={starsRef}
-                size={30}
-                count={5}
-                isHalf={false}
-                value={starRate}
-                color="black"
-                activeColor="red"
-                onChange={onRating}
-              />
-            </td>
-            <td>
-              <InputGroup className="mb-3">
-                <DropdownButton
-                  as={InputGroup.Prepend}
-                  variant="outline-secondary"
-                  title="Already Watched?"
-                  id="input-group-dropdown-1"
-                >
-                  <Dropdown.Item href="#">Yes</Dropdown.Item>
-                  <Dropdown.Item href="#">No</Dropdown.Item>
-                </DropdownButton>
-              </InputGroup>
-            </td>
-            <td>
-              <Button onClick={deletefavoriteMovie} variant="danger">
-                Delete
-              </Button>
-            </td>
+      <NavTab />
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>🎬</th>
+            <th>Movie Name 🎥</th>
+            <th>Theater Rating 📽️</th>
+            <th>Theater Score 🎞️</th>
+            <th>My Rating ⭐</th>
+            <th>Watched 📺</th>
+            <th>📼</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {favMovies.map((doc) => (
+            <tr key={doc._id}>
+              <td>🎬</td>
+              <td>
+                <img
+                  className="img-fluid"
+                  src={
+                    `https://www.themoviedb.org/t/p/w600_and_h900_bestv2` +
+                    doc.poster_path
+                  }
+                  style={{ margin: "0 auto", height: "125px" }}
+                />{" "}
+                {doc.title}
+              </td>
+              <td>{doc.vote_average}</td>
+              <td>{doc.popularity}</td>
+              <td>
+                <ReactStars
+                  id={doc._id}
+                  ref={starsRef}
+                  size={30}
+                  count={5}
+                  isHalf={false}
+                  value={starRate}
+                  color="black"
+                  activeColor="red"
+                  onChange={onRating}
+                />
+              </td>
+              <td>
+                <InputGroup className="mb-3">
+                  <DropdownButton
+                    as={InputGroup.Prepend}
+                    variant="outline-secondary"
+                    title="Already Watched?"
+                    id="input-group-dropdown-1"
+                  >
+                    <Dropdown.Item href="#">Yes</Dropdown.Item>
+                    <Dropdown.Item href="#">No</Dropdown.Item>
+                  </DropdownButton>
+                </InputGroup>
+              </td>
+              <td>
+                <Button onClick={deletefavoriteMovie} variant="danger">
+                  Delete
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </Container>
   );
 }
