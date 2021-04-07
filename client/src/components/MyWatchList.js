@@ -8,17 +8,28 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import ReactStars from "react-rating-stars-component";
 
-
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
+  const [starRate, setstarRate] = useState(0);
+  
 
   const getfavoriteMovieAdd = () => {
     Axios({
       method: "GET",
       url: "/api/get-data",
     }).then((res) => {
-      console.log(res, "these are the docs from teh backend");
+      console.log(res, "these are the docs from the backend");
       setFavMovies(res.data.docs);
+    });
+  };
+
+  const deletefavoriteMovie = () => {
+    Axios({
+      method: "DELETE",
+      url: "/api/delete/:_id",
+    }).then((res) => {
+      console.log(res, "Deleted Docs");
+      getfavoriteMovieAdd()
     });
   };
 
@@ -26,17 +37,28 @@ function MyWatchList() {
     getfavoriteMovieAdd();
   }, []);
 
+
   const thirdExample = {
     size: 30,
     count: 5,
     isHalf: false,
-    value: 0,
+    value: starRate,
     color: "black",
     activeColor: "red",
-    onChange: newValue => {
-      console.log(`Example 3: new value is ${newValue}`);
-    }
+    onChange: (newValue) => {
+      console.log(`New value is ${newValue}`);
+      Axios({
+        method: "GET",
+        url: "/api/insertStar",
+      }).then((res) => {
+        console.log(res, `these are the Rating Stars ${newValue}`);
+        setstarRate(newValue);
+        console.log(setstarRate);
+      });
+    },
   };
+
+
 
   return (
     <Table striped bordered hover>
@@ -58,7 +80,9 @@ function MyWatchList() {
             <td>{doc.title}</td>
             <td>{doc.vote_average}</td>
             <td>{doc.popularity}</td>
-            <td><ReactStars {...thirdExample}/></td>
+            <td>
+              <ReactStars {...thirdExample} />
+            </td>
             <td>
               <InputGroup className="mb-3">
                 <DropdownButton
@@ -73,7 +97,9 @@ function MyWatchList() {
               </InputGroup>
             </td>
             <td>
-              <Button variant="danger">Remove</Button>
+              <Button onClick={deletefavoriteMovie} variant="danger">
+                Delete
+              </Button>
             </td>
           </tr>
         ))}

@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Title = require("../models/index");
+const Star = require("../models/index");
 
 router.get("/get-data", function (req, res) {
   Title.find(function (err, docs) {
@@ -8,6 +9,22 @@ router.get("/get-data", function (req, res) {
     res.send({ docs });
     console.log("Logging titles:", docs);
   });
+});
+
+router.delete("/delete/:_id", function (req, res) {
+  Title.findOneAndDelete({ id: req.params.id })
+    .then((docs) => {
+      if (!docs) {
+        return res.status(404).json({ message: "No title with this id!" });
+      }
+    })
+    .then(() => {
+      res.send("Movie deleted");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post("/insert", (req, res) => {
@@ -21,6 +38,7 @@ router.post("/insert", (req, res) => {
       popularity,
       release_date,
       vote_average,
+      star,
     } = req.body;
 
     const newTitle = new Title({
@@ -29,12 +47,38 @@ router.post("/insert", (req, res) => {
       popularity,
       release_date,
       vote_average,
+      star,
     });
     console.log(newTitle);
     await newTitle.save();
     res.send("Movie Created");
   });
 });
+
+router.post("/insertStar", (req, res) => {
+  Star.create({ star: req.body.star }, async (err, doc) => {
+    if (err) throw err;
+    if (doc) res.send("Rating Already Exists");
+    const {
+ 
+      star,
+    } = req.body;
+
+    const newStar = new Star({
+
+      star,
+    });
+    console.log(newStar);
+    await newStar.save();
+    res.send("Rating Created");
+  });
+});
+
+
+router.get("/insertStar", (req, res) => {
+  res.send(req.star); // The req.user stores the entire user that has been authenticated inside of it.
+});
+
 router.get("/insert", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });

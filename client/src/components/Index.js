@@ -35,7 +35,11 @@ class OmdbContainer extends Component {
       .then((res) => {
         console.log(res);
         movieTrailer(query, { id: true }).then((trailer) => {
-          this.setState({ result: res.data.results[0], trailerId: trailer });
+          this.setState({
+            result: res.data.results[0],
+            trailerId: trailer,
+            search: "",
+          });
         });
       })
 
@@ -71,7 +75,7 @@ class OmdbContainer extends Component {
     Axios({
       method: "POST",
       url: "/api/insert",
-      data
+      data,
     }).then((res) => console.log(res));
   };
 
@@ -131,8 +135,6 @@ class OmdbContainer extends Component {
                     onClick={this.handleMOviefavourites}
                     favList={this.state.newMovieTilte}
                     overview={this.state.result.overview}
-
-                    
                   />
                 </div>
               ) : (

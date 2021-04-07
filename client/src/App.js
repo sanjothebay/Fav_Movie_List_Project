@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Index from "./components/Index";
-import Navbar from "./components/Navbar";
+import NavTab from "./components/Navbar";
 import LoginScreen from "./components/LoginScreen";
 import MyWatchList from "./components/MyWatchList";
 import FriendWatchList from "./components/FriendWatchList";
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+        <NavTab />
         <Switch>
           <Route exact path="/" component={LoginScreen} />
           <Route exact path="/home" component={Index} />
