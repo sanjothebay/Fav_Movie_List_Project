@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
 import Table from "react-bootstrap/Table";
@@ -11,7 +11,7 @@ import ReactStars from "react-rating-stars-component";
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
   const [starRate, setstarRate] = useState(0);
-  
+  const starsRef= useRef()
 
   const getfavoriteMovieAdd = () => {
     Axios({
@@ -38,23 +38,24 @@ function MyWatchList() {
   }, []);
 
 
+  const onRating = (newValue) => {
+    console.log(starsRef)
+  }
   const thirdExample = {
-    size: 30,
-    count: 5,
-    isHalf: false,
-    value: starRate,
-    color: "black",
-    activeColor: "red",
+   
     onChange: (newValue) => {
       console.log(`New value is ${newValue}`);
-      Axios({
-        method: "GET",
-        url: "/api/insertStar",
-      }).then((res) => {
-        console.log(res, `these are the Rating Stars ${newValue}`);
-        setstarRate(newValue);
-        console.log(setstarRate);
-      });
+      // Axios({
+      //   method: "PUT",
+      //   url: "/api/updateStars/:_id",
+      //   data: {
+      //     star: newValue,
+      //   }
+      // }).then((res) => {
+      //   console.log(res, `these are the Rating Stars ${newValue}`);
+      //   setstarRate(newValue);
+      //   console.log(starRate);
+      // });
     },
   };
 
@@ -75,13 +76,23 @@ function MyWatchList() {
       </thead>
       <tbody>
         {favMovies.map((doc) => (
-          <tr>
+          <tr key={doc._id} >
             <td>🎬</td>
             <td>{doc.title}</td>
             <td>{doc.vote_average}</td>
             <td>{doc.popularity}</td>
             <td>
-              <ReactStars {...thirdExample} />
+              <ReactStars 
+              id={doc._id}
+              ref={starsRef}
+               size= {30}
+               count= {5}
+               isHalf= {false}
+               value= {starRate}
+               color= "black"
+               activeColor= "red"
+               onChange={onRating}
+              />
             </td>
             <td>
               <InputGroup className="mb-3">

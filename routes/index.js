@@ -55,23 +55,21 @@ router.post("/insert", (req, res) => {
   });
 });
 
-router.post("/insertStar", (req, res) => {
-  Star.create({ star: req.body.star }, async (err, doc) => {
-    if (err) throw err;
-    if (doc) res.send("Rating Already Exists");
-    const {
- 
-      star,
-    } = req.body;
-
-    const newStar = new Star({
-
-      star,
+router.put("/updateStars/:_id", function (req, res) {
+  Title.findOneAndUpdate({ id: req.params.id }, req.body)
+    .then((docs) => {
+      if (!docs) {
+        return res.status(404).json({ message: "No title with this id!" });
+      }
+      console.log(docs);
+    })
+    .then(() => {
+      res.send("Movie Updated");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
-    console.log(newStar);
-    await newStar.save();
-    res.send("Rating Created");
-  });
 });
 
 
