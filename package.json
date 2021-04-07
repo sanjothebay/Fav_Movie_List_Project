@@ -30,9 +30,7 @@
     "mongodb": "^3.6.5",
     "mongoose": "^5.9.12",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "plotly.js": "^1.58.4",
-    "react-plotly.js": "^2.5.1"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",
