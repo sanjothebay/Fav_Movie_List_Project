@@ -194,5 +194,4 @@ https://www.themoviedb.org/
 
 ## Submission Video <a name="Submission_Video"></a>
 
-[![Watch the video](https://user-images.githubusercontent.com/67298961/113968797-70cbfe00-97f9-11eb-95e6-b4a9c27c9cd5.mp4)](https://user-images.githubusercontent.com/67298961/113968797-70cbfe00-97f9-11eb-95e6-b4a9c27c9cd5.mp4)
-
+![caption](https://user-images.githubusercontent.com/67298961/113968797-70cbfe00-97f9-11eb-95e6-b4a9c27c9cd5.mp4 / GIF)
