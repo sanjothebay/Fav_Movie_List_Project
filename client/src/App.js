@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div>
-        <NavTab />
+        {/* <NavTab /> */}
         <Switch>
           <Route exact path="/" component={LoginScreen} />
           <Route exact path="/home" component={Index} />

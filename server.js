@@ -22,7 +22,7 @@ mongoose.connect(
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-  },
+  }
   // () => {
   //   console.log("Mongoose Is Connected");
   // }
