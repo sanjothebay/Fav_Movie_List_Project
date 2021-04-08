@@ -26,6 +26,7 @@ https://dry-caverns-58581.herokuapp.com/
 3. [Collections](#Collections)
 4. [Api](#Api)
 5. [Submission Video](#Submission_Video)
+6. [LICENSE](#LICENSE)
 
 
 ## Description :bulb:
@@ -191,6 +192,11 @@ The Movie Database:
 https://www.themoviedb.org/
 
 ![image](https://user-images.githubusercontent.com/67298961/113967962-c7d0d380-97f7-11eb-90f4-2e6ab3290c52.png)
+
+## LICENSE <a name="LICENSE"></a>
+
+License under the [MIT License](LICENSE)
+
 
 ## Submission Video <a name="Submission_Video"></a>
 
