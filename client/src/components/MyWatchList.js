@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
 import Table from "react-bootstrap/Table";
@@ -7,11 +7,13 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import ReactStars from "react-rating-stars-component";
+import Container from "./Container";
+import NavTab from "./Navbar";
 
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
   const [starRate, setstarRate] = useState(0);
-  
+  const starsRef = useRef();
 
   const getfavoriteMovieAdd = () => {
     Axios({
@@ -29,7 +31,7 @@ function MyWatchList() {
       url: "/api/delete/:_id",
     }).then((res) => {
       console.log(res, "Deleted Docs");
-      getfavoriteMovieAdd()
+      getfavoriteMovieAdd();
     });
   };
 
@@ -37,74 +39,95 @@ function MyWatchList() {
     getfavoriteMovieAdd();
   }, []);
 
-
-  const thirdExample = {
-    size: 30,
-    count: 5,
-    isHalf: false,
-    value: starRate,
-    color: "black",
-    activeColor: "red",
-    onChange: (newValue) => {
-      console.log(`New value is ${newValue}`);
-      Axios({
-        method: "GET",
-        url: "/api/insertStar",
-      }).then((res) => {
-        console.log(res, `these are the Rating Stars ${newValue}`);
-        setstarRate(newValue);
-        console.log(setstarRate);
-      });
-    },
+  const onRating = (newValue) => {
+    console.log(starsRef);
   };
+  // const thirdExample = {
 
-
+  //   onChange: (newValue) => {
+  //     console.log(`New value is ${newValue}`);
+  //     // Axios({
+  //     //   method: "PUT",
+  //     //   url: "/api/updateStars/:_id",
+  //     //   data: {
+  //     //     star: newValue,
+  //     //   }
+  //     // }).then((res) => {
+  //     //   console.log(res, `these are the Rating Stars ${newValue}`);
+  //     //   setstarRate(newValue);
+  //     //   console.log(starRate);
+  //     // });
+  //   },
+  // };
 
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>🎬</th>
-          <th>Movie Name 🎥</th>
-          <th>Theater Rating 📽️</th>
-          <th>Theater Score 🎞️</th>
-          <th>My Rating ⭐</th>
-          <th>Watched 📺</th>
-          <th>📼</th>
-        </tr>
-      </thead>
-      <tbody>
-        {favMovies.map((doc) => (
+    <Container>
+      <NavTab />
+      <Table striped bordered hover>
+        <thead>
           <tr>
-            <td>🎬</td>
-            <td>{doc.title}</td>
-            <td>{doc.vote_average}</td>
-            <td>{doc.popularity}</td>
-            <td>
-              <ReactStars {...thirdExample} />
-            </td>
-            <td>
-              <InputGroup className="mb-3">
-                <DropdownButton
-                  as={InputGroup.Prepend}
-                  variant="outline-secondary"
-                  title="Already Watched?"
-                  id="input-group-dropdown-1"
-                >
-                  <Dropdown.Item href="#">Yes</Dropdown.Item>
-                  <Dropdown.Item href="#">No</Dropdown.Item>
-                </DropdownButton>
-              </InputGroup>
-            </td>
-            <td>
-              <Button onClick={deletefavoriteMovie} variant="danger">
-                Delete
-              </Button>
-            </td>
+            <th>🎬</th>
+            <th>Movie Name 🎥</th>
+            <th>Theater Rating 📽️</th>
+            <th>Theater Score 🎞️</th>
+            <th>My Rating ⭐</th>
+            <th>Watched 📺</th>
+            <th>📼</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {favMovies.map((doc) => (
+            <tr key={doc._id}>
+              <td>🎬</td>
+              <td>
+                <img
+                  className="img-fluid"
+                  src={
+                    `https://www.themoviedb.org/t/p/w600_and_h900_bestv2` +
+                    doc.poster_path
+                  }
+                  style={{ margin: "0 auto", height: "125px" }}
+                />{" "}
+                {doc.title}
+              </td>
+              <td>{doc.vote_average}</td>
+              <td>{doc.popularity}</td>
+              <td>
+                <ReactStars
+                  id={doc._id}
+                  ref={starsRef}
+                  size={30}
+                  count={5}
+                  isHalf={false}
+                  value={starRate}
+                  color="black"
+                  activeColor="red"
+                  onChange={onRating}
+                />
+              </td>
+              <td>
+                <InputGroup className="mb-3">
+                  <DropdownButton
+                    as={InputGroup.Prepend}
+                    variant="outline-secondary"
+                    title="Already Watched?"
+                    id="input-group-dropdown-1"
+                  >
+                    <Dropdown.Item href="#">Yes</Dropdown.Item>
+                    <Dropdown.Item href="#">No</Dropdown.Item>
+                  </DropdownButton>
+                </InputGroup>
+              </td>
+              <td>
+                <Button onClick={deletefavoriteMovie} variant="danger">
+                  Delete
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 }
 export default MyWatchList;
