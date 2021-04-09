@@ -147,12 +147,10 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
         </Row>
-        <Footer />
+      <div>
+        <Footer/>
+      </div>
       </Container>
-      
-    
-      
-      
     );
   }
 }

@@ -1,22 +1,18 @@
-/* body {
-  background-image: url("");
-} */
-
 footer {
   background-image: url("https://media3.giphy.com/media/pcLw0jLBelkbK/200.webp?cid=ecf05e479pl6pmglm5l4bx9kf4guhzrqxjh4zo0byneainl7&rid=200.webp");
   position: fixed;
   height: 100px;
-  bottom: 0;
+  bottom: -20px;
   width: 100%;
 }
 
 #footerText,
 #navBttn,
 #appLogo {
-  color: rgb(66, 65, 65);
-  background-color: rgba(223, 224, 200, 0.918);
+  color: white;
+  background-color: black;
   border-radius: 30px;
-  border: solid rgba(255, 0, 0, 0.637) 2px;
+  border: solid white 5px;
   filter: brightness(120%);
 }
 
@@ -35,12 +31,12 @@ footer {
   padding: 4%;
 }
 
-#appLogo {
+/* #appLogo {
   color: black;
   border-radius: 10px;
   border: solid rgb(223, 224, 200) 2px;
   filter: brightness(120%);
-}
+} */
 
 #resultHeader {
   background-image: url("");
