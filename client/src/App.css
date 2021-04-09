@@ -1,9 +1,13 @@
-body {
-  background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
-}
+/* body {
+  background-image: url("");
+} */
 
 footer {
-  background-image: url("https://previews.123rf.com/images/davidfranklinstudioworks/davidfranklinstudioworks1603/davidfranklinstudioworks160300042/54149988-admit-one-cinema-tickets-background-with-one-unique-blue-ticket.jpg");
+  background-image: url("https://media3.giphy.com/media/pcLw0jLBelkbK/200.webp?cid=ecf05e479pl6pmglm5l4bx9kf4guhzrqxjh4zo0byneainl7&rid=200.webp");
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
 }
 
 #footerText,
@@ -22,12 +26,13 @@ footer {
 
 #navBttn {
   margin: 0 40px 0 40px;
-  width: 230px;
+  width: 175px;
   text-align: center;
 }
 
 .allNav {
-  background-image: url("https://previews.123rf.com/images/davidfranklinstudioworks/davidfranklinstudioworks1603/davidfranklinstudioworks160300042/54149988-admit-one-cinema-tickets-background-with-one-unique-blue-ticket.jpg");
+  background-image: url("https://media0.giphy.com/media/3o6Ztl7RvfwCp9mqhW/200.webp?cid=ecf05e47rt2zyismfaiu0p13nctl3o7tvntpibdpnsufiu03&rid=200.webp");
+  padding: 4%;
 }
 
 #appLogo {
@@ -38,23 +43,24 @@ footer {
 }
 
 #resultHeader {
-  background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+  background-image: url("");
 }
 
 #searchCard {
   align-items: center;
-  width: 1400px;
-  background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+  width: 50%;
+  background-image: url("");
+  margin-left: 25%;
 }
 
 #trailerCard {
-  background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
+  background-image: url("");
   width: 50%;
   float: left;
 }
 
-#movieInfoCard {
+/* #movieInfoCard {
   background-image: url("https://us.123rf.com/450wm/kilroy79/kilroy791506/kilroy79150600303/41638473-points-gris-teint%C3%A9s-seamless-pattern-fond-blanc-.jpg?ver=6");
   width: 50%;
   float: right;
-}
+} */

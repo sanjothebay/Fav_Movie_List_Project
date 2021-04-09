@@ -142,7 +142,7 @@ class OmdbContainer extends Component {
                   />
                 </div>
               ) : (
-                <h3>No Results to Display</h3>
+                <h3></h3>
               )}
             </Card>
           </Col>
