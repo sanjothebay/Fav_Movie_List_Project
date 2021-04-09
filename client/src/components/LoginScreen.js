@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./LoginStyles.css";
 import Axios from "axios";
 import { Route, Redirect, useLocation } from "react-router";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function LoginScreen() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -12,7 +16,8 @@ function LoginScreen() {
   const { state } = useLocation();
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
 
-  const register = () => {
+  const register = (event) => {
+    event.preventDefault();
     Axios({
       method: "POST",
       data: {
@@ -21,11 +26,15 @@ function LoginScreen() {
       },
       withCredentials: true,
       url: "/register",
-    }).then((res) => console.log(res));
-    window.location.reload(false);
+    }).then((res) => {
+      console.log(res);
+      window.location.reload();
+    });
+    
   };
 
-  const login = () => {
+  const login = (event) => {
+    event.preventDefault();
     Axios({
       method: "POST",
       data: {
@@ -45,74 +54,65 @@ function LoginScreen() {
     });
   };
 
-  // function MovieDetail({ children, ...rest }) {
-  //   return (
-  //     <Route
-  //       {...rest}
-  //       render={(location) => {
-  //         return login.isAuthenticated === true ? (
-  //           children
-  //         ) : (
-  //           <Redirect
-  //             to={{
-  //               pathname: "/home",
-  //               state: { from: location },
-  //             }}
-  //           />
-  //         );
-  //       }}
-  //     />
-  //   );
-  // }
-
-  // const getUser = () => {
-  //   Axios({
-  //     method: "GET",
-  //     withCredentials: true,
-  //     url: "/user",
-  //   }).then((res) => {
-  //     setData(res.data);
-  //     console.log(res.data);
-  //   });
-  // };
 
   return (
-    <div className="App">
-      <div>
-        <h1>Register</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <button onClick={register}>Submit</button>
-      </div>
 
-      <div>
+    <Container>
+
+      <Row className="register">
+      
+      <Form>
+      <h1>Register</h1>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>User Name</Form.Label>
+          <Form.Control placeholder="Enter user name" onChange={(e) => setRegisterUsername(e.target.value)}/>
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" onChange={(e) => setRegisterPassword(e.target.value)}/>
+        </Form.Group>
+       
+       
+        <Button variant="primary" type="submit" onClick={register}>
+          Register
+        </Button>
+      </Form>
+          
+        
+      </Row>
+
+      <Row className="showLogin">
+        <Form>
         <h1>Login</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button onClick={login}>Submit</button>
-        {redirectToReferrer ? <Redirect to="/home" /> : null}
-      </div>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control placeholder="Enter user name" onChange={(e) => setLoginUsername(e.target.value)}/>
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-      <div className="test">
-        {/* <h1>Get User</h1>
-        <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null} */}
-      </div>
-    </div>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)}/>
+          </Form.Group>
+        
+        
+          <Button variant="primary" type="submit" onClick={login}>
+            Login
+          </Button>
+        </Form>
+
+      {redirectToReferrer ? <Redirect to="/home" /> : null}
+      
+      </Row>
+    </Container>
+
+    
   );
 }
 
