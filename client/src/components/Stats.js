@@ -3,6 +3,7 @@ import Plot from "react-plotly.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "./Container";
 import NavTab from "./Navbar";
+import Footer from "./Footer";
 
 function Stats() {
   return (
@@ -35,6 +36,7 @@ function Stats() {
           layout={{ width: 1000, heigh: 500, title: "Genre %" }}
         />
       </div>
+      <Footer/>
     </Container>
   );
 }

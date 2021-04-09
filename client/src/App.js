@@ -6,7 +6,7 @@ import LoginScreen from "./components/LoginScreen";
 import MyWatchList from "./components/MyWatchList";
 import FriendWatchList from "./components/FriendWatchList";
 import Stats from "./components/Stats";
-import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/others" component={FriendWatchList} />
           <Route exact path="/stats" component={Stats} />
         </Switch>
-        <Footer />
+        
       </div>
     </Router>
   );
