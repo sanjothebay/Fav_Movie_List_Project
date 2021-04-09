@@ -1,8 +1,12 @@
 footer {
   background-image: url("https://media3.giphy.com/media/pcLw0jLBelkbK/200.webp?cid=ecf05e479pl6pmglm5l4bx9kf4guhzrqxjh4zo0byneainl7&rid=200.webp");
+  max-height: 100vh;
+}
+
+#sticky-footer{
   position: fixed;
   height: 100px;
-  bottom: -20px;
+  bottom: 0px;
   width: 100%;
 }
 
