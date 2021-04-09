@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, useLocation } from "react-router-dom";
 import Darkmode from "darkmode-js";
+import Container from "./Container";
 
 const options = {
   bottom: "32px", // default: '32px'
@@ -25,6 +26,7 @@ function NavTab() {
   const location = useLocation();
 
   return (
+    <Container>
     <Navbar bg="dark" variant="dark" className="allNav">
       {/* <Link to="/home"> 
         <Navbar.Brand 
@@ -52,7 +54,7 @@ function NavTab() {
             }
             id="navBttn"
           >
-            My Watch List
+            My List
           </Navbar.Brand>
         </Link>
 
@@ -63,7 +65,7 @@ function NavTab() {
             }
             id="navBttn"
           >
-            My Friends Watch List
+            Friends List
           </Navbar.Brand>
         </Link>
 
@@ -90,6 +92,7 @@ function NavTab() {
         </Link>
       </Nav>
     </Navbar>
+    </Container>
   );
 }
 export default NavTab;
