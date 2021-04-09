@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import NavTab from "./Navbar";
 import Container from "./Container";
+import Footer from "./Footer";
 
 function FriendWatchList() {
   return (
@@ -54,6 +55,7 @@ function FriendWatchList() {
         </tr>
       </tbody>
     </Table>
+    <Footer/>
     </Container>
   );
 }

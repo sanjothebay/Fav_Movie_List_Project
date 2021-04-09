@@ -9,6 +9,7 @@ import API from "../utils/API";
 import YouTube from "react-youtube";
 import Axios from "axios";
 import NavTab from "./Navbar";
+import Footer from "./Footer";
 
 // or import movieTrailer from 'movie-trailer'
 const movieTrailer = require("movie-trailer");
@@ -97,7 +98,8 @@ class OmdbContainer extends Component {
     };
 
     return (
-      <Container>
+     
+        <Container>
         <NavTab/>
         <Row>
           <Col size="md-12">
@@ -145,7 +147,12 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
         </Row>
+        <Footer />
       </Container>
+      
+    
+      
+      
     );
   }
 }

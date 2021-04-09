@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import ReactStars from "react-rating-stars-component";
 import Container from "./Container";
 import NavTab from "./Navbar";
+import Footer from "./Footer";
 
 function MyWatchList() {
   const [favMovies, setFavMovies] = useState([]);
@@ -127,6 +128,7 @@ function MyWatchList() {
           ))}
         </tbody>
       </Table>
+      <Footer/>
     </Container>
   );
 }
