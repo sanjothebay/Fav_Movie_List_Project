@@ -6,3 +6,21 @@
 .test{
     padding-bottom: 100px;
 }
+
+.loginScreen {
+    background-image: url("../components/curtains.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+
+#register{
+    padding-top: 80px;
+}
+
+#showLogin{
+    padding-top: 80px;
+}
+
+
