@@ -10,7 +10,7 @@ function Stats() {
     <Container>
       <NavTab />
       <div className="contactcard">
-        <h1>Stats will be here</h1>
+        <h1>📊 Stats</h1>
         <Plot
           data={[
             {
