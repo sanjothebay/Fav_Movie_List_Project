@@ -202,6 +202,3 @@ License under the [MIT License](LICENSE)
 
 
 ![Watch](Project3Video.gif)
-![Watch](https://user-images.githubusercontent.com/67298961/113968797-70cbfe00-97f9-11eb-95e6-b4a9c27c9cd5.mp4)
-
-
