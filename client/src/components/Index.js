@@ -110,7 +110,7 @@ class OmdbContainer extends Component {
               />
             </Card>
             <Card
-              title={this.state.result.title || "Search for a Movie to Begin"}
+              title={this.state.result.title || "🎬 Search for a Movie to Begin 🎬"}
             >
               <div id="trailerCard">
                 {this.state.result.title ? (

@@ -43,7 +43,7 @@ function NavTab() {
               }
               id="navBttn"
             >
-              Search Movie
+            🔎 Search Movie
             </Navbar.Brand>
           </Link>
 
@@ -54,7 +54,7 @@ function NavTab() {
               }
               id="navBttn"
             >
-              My List
+            ♨️ My List
             </Navbar.Brand>
           </Link>
 
@@ -65,7 +65,7 @@ function NavTab() {
               }
               id="navBttn"
             >
-              Friends List
+            📺 Friends List
             </Navbar.Brand>
           </Link>
 
@@ -76,7 +76,7 @@ function NavTab() {
               }
               id="navBttn"
             >
-              Stats
+            📊 Stats
             </Navbar.Brand>
           </Link>
 
@@ -87,7 +87,7 @@ function NavTab() {
               }
               id="navBttn"
             >
-              Exit
+            🛑 Exit
             </Navbar.Brand>
           </Link>
         </Nav>

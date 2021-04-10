@@ -67,12 +67,11 @@ function MyWatchList() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>🎬</th>
+            <th>🍿</th>
             <th>Movie Name 🎥</th>
             <th>Theater Rating 📽️</th>
             <th>Theater Score 🎞️</th>
             <th>My Rating ⭐</th>
-            <th>Watched 📺</th>
             <th>📼</th>
           </tr>
         </thead>
@@ -106,7 +105,7 @@ function MyWatchList() {
                   onChange={onRating}
                 />
               </td>
-              <td>
+              {/* <td>
                 <InputGroup className="mb-3">
                   <DropdownButton
                     as={InputGroup.Prepend}
@@ -118,7 +117,7 @@ function MyWatchList() {
                     <Dropdown.Item href="#">No</Dropdown.Item>
                   </DropdownButton>
                 </InputGroup>
-              </td>
+              </td> */}
               <td>
                 <Button onClick={deletefavoriteMovie} variant="danger">
                   Delete
