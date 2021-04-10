@@ -69,7 +69,7 @@ function MyWatchList() {
           <tr>
             <th>🍿</th>
             <th>Movie Name 🎥</th>
-            <th>Theater Rating 📽️</th>
+            <th>Movie Rating 📽️</th>
             <th>Theater Score 🎞️</th>
             <th>My Rating ⭐</th>
             <th>📼</th>
