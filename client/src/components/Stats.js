@@ -36,7 +36,7 @@ function Stats() {
           layout={{ width: 1000, heigh: 500, title: "Genre %" }}
         />
       </div>
-      <Footer/>
+      <Footer />
     </Container>
   );
 }

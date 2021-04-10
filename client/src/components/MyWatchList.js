@@ -128,7 +128,7 @@ function MyWatchList() {
           ))}
         </tbody>
       </Table>
-      <Footer/>
+      <Footer />
     </Container>
   );
 }

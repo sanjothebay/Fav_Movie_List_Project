@@ -1,26 +1,22 @@
-.darkmode-background{
-    background-image: url("");
+.darkmode-background {
+  background-image: url("");
 }
 
-
-.test{
-    padding-bottom: 100px;
+.test {
+  padding-bottom: 100px;
 }
 
 .loginScreen {
-    background-image: url("../components/curtains.png");
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: top center;
+  background-image: url("../components/curtains.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
-
-#register{
-    padding-top: 80px;
+#register {
+  padding-top: 80px;
 }
 
-#showLogin{
-    padding-top: 80px;
+#showLogin {
+  padding-top: 80px;
 }
-
-

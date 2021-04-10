@@ -1,30 +1,29 @@
-html, body {
+/* html, body {
   height: 100%;
   margin: 0px;
   position: relative;
-}
-
+} */
 
 footer {
   background-image: url("https://media3.giphy.com/media/pcLw0jLBelkbK/200.webp?cid=ecf05e479pl6pmglm5l4bx9kf4guhzrqxjh4zo0byneainl7&rid=200.webp");
 }
-.mainBody{
+.mainBody {
   height: 100%;
   margin-bottom: -100px;
 }
 
-.push{
-height: 210px;
+.push {
+  height: 200px;
 }
 
-#sticky-footer{
-  position: static; 
+#sticky-footer {
+  position: static;
   left: 0;
   right: 0;
   bottom: 0;
   /* height: 100px; */
   /* bottom: 0px; */
-   /* width: 100%; */
+  /* width: 100%; */
 }
 
 #footerText,
@@ -42,9 +41,12 @@ height: 210px;
 }
 
 #navBttn {
-  margin: 0 40px 0 40px;
-  width: 175px;
+  margin: 0px 40px 0px 40px;
+  width: 188px;
   text-align: center;
+}
+.mr-auto {
+  padding-right: 100px;
 }
 
 .allNav {

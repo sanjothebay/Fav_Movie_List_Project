@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-
 function LoginScreen() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -20,9 +19,6 @@ function LoginScreen() {
   // const [visible, setVisible] = useState(true);
 
   const [visible, setVisible] = useState(false);
-
-  
-  
 
   const register = (event) => {
     event.preventDefault();
@@ -38,7 +34,6 @@ function LoginScreen() {
       console.log(res);
       window.location.reload();
     });
-    
   };
 
   const login = (event) => {
@@ -72,70 +67,27 @@ function LoginScreen() {
 
   //----------------
 
-  function showMe(event){
+  function showMe(event) {
     event.preventDefault();
     setVisible(true);
   }
 
-  let logInstyle = { };
+  let logInstyle = {};
   if (!visible) logInstyle.display = "none";
 
-  
-  
-
   return (
-
     <Container className="loginScreen">
-
-      <Row className="justify-content-center" id="register" >
-      
-      <Form >
-      <h1>Welcome to our movie app! </h1>
-      <p>Please register here:</p>
-      
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>User Name</Form.Label>
-          <Form.Control placeholder="Enter user name" onChange={(e) => setRegisterUsername(e.target.value)}/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={(e) => setRegisterPassword(e.target.value)}/>
-        </Form.Group>
-       
-        <Row>
-          <Col>
-            <Button variant="danger" type="submit" onClick={register}>
-              Register
-            </Button>
-          </Col>
-
-
-            <Button variant="secondary" type="submit" onClick={showMe}>
-            Returning User
-            </Button>
-          <Col>
-          
-          </Col>
-        </Row>
-        <br/>
-        
-      </Form>
-      
-      
-      
-        
-      </Row>
-
-      <Row className="justify-content-center" id="showLogin" style={logInstyle}>
+      <Row className="justify-content-center" id="register">
         <Form>
-        <h1>Login</h1>
+          <h1>Welcome to our movie app! </h1>
+          <p>Please register here:</p>
+
           <Form.Group controlId="formBasicEmail">
             <Form.Label>User Name</Form.Label>
-            <Form.Control placeholder="Enter user name" onChange={(e) => setLoginUsername(e.target.value)}/>
+            <Form.Control
+              placeholder="Enter user name"
+              onChange={(e) => setRegisterUsername(e.target.value)}
+            />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -143,21 +95,60 @@ function LoginScreen() {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)}/>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setRegisterPassword(e.target.value)}
+            />
           </Form.Group>
-        
-        
+
+          <Row>
+            <Col>
+              <Button variant="danger" type="submit" onClick={register}>
+                Register
+              </Button>
+            </Col>
+
+            <Button variant="secondary" type="submit" onClick={showMe}>
+              Returning User
+            </Button>
+            <Col></Col>
+          </Row>
+          <br />
+        </Form>
+      </Row>
+
+      <Row className="justify-content-center" id="showLogin" style={logInstyle}>
+        <Form>
+          <h1>Login</h1>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              placeholder="Enter user name"
+              onChange={(e) => setLoginUsername(e.target.value)}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
+          </Form.Group>
+
           <Button variant="danger" type="submit" onClick={login}>
             Login
           </Button>
         </Form>
 
-      {redirectToReferrer ? <Redirect to="/home" /> : null}
-      
+        {redirectToReferrer ? <Redirect to="/home" /> : null}
       </Row>
     </Container>
-
-    
   );
 }
 

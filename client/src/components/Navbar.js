@@ -27,71 +27,71 @@ function NavTab() {
 
   return (
     <Container>
-    <Navbar bg="dark" variant="dark" className="allNav">
-      {/* <Link to="/home"> 
+      <Navbar bg="dark" variant="dark" className="allNav">
+        {/* <Link to="/home"> 
         <Navbar.Brand 
         className={
           location.pathname === "/home" ? "nav-link active" : "nav-link"
         } id="appLogo">Movie Watch List</Navbar.Brand>
       </Link> */}
 
-      <Nav className="mr-auto">
-        <Link to="/home">
-          <Navbar.Brand
-            className={
-              location.pathname === "/home" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            Search Movie
-          </Navbar.Brand>
-        </Link>
+        <Nav className="mr-auto">
+          <Link to="/home">
+            <Navbar.Brand
+              className={
+                location.pathname === "/home" ? "nav-link active" : "nav-link"
+              }
+              id="navBttn"
+            >
+              Search Movie
+            </Navbar.Brand>
+          </Link>
 
-        <Link to="/self">
-          <Navbar.Brand
-            className={
-              location.pathname === "/self" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            My List
-          </Navbar.Brand>
-        </Link>
+          <Link to="/self">
+            <Navbar.Brand
+              className={
+                location.pathname === "/self" ? "nav-link active" : "nav-link"
+              }
+              id="navBttn"
+            >
+              My List
+            </Navbar.Brand>
+          </Link>
 
-        <Link to="/others">
-          <Navbar.Brand
-            className={
-              location.pathname === "/others" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            Friends List
-          </Navbar.Brand>
-        </Link>
+          <Link to="/others">
+            <Navbar.Brand
+              className={
+                location.pathname === "/others" ? "nav-link active" : "nav-link"
+              }
+              id="navBttn"
+            >
+              Friends List
+            </Navbar.Brand>
+          </Link>
 
-        <Link to="/stats">
-          <Navbar.Brand
-            className={
-              location.pathname === "Stats" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            Stats
-          </Navbar.Brand>
-        </Link>
+          <Link to="/stats">
+            <Navbar.Brand
+              className={
+                location.pathname === "Stats" ? "nav-link active" : "nav-link"
+              }
+              id="navBttn"
+            >
+              Stats
+            </Navbar.Brand>
+          </Link>
 
-        <Link to="/">
-          <Navbar.Brand
-            className={
-              location.pathname === "/" ? "nav-link active" : "nav-link"
-            }
-            id="navBttn"
-          >
-            Exit
-          </Navbar.Brand>
-        </Link>
-      </Nav>
-    </Navbar>
+          <Link to="/">
+            <Navbar.Brand
+              className={
+                location.pathname === "/" ? "nav-link active" : "nav-link"
+              }
+              id="navBttn"
+            >
+              Exit
+            </Navbar.Brand>
+          </Link>
+        </Nav>
+      </Navbar>
     </Container>
   );
 }
