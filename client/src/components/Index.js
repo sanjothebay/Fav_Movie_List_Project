@@ -98,10 +98,9 @@ class OmdbContainer extends Component {
     };
 
     return (
-     
-        <Container>
-        <NavTab/>
+      <Container>
         <Row>
+          <NavTab />
           <Col size="md-12">
             <Card heading="Search">
               <SearchForm
@@ -111,7 +110,7 @@ class OmdbContainer extends Component {
               />
             </Card>
             <Card
-              title={this.state.result.title || "Search for a Movie to Begin"}
+              title={this.state.result.title || "🎬 Search for a Movie to Begin 🎬"}
             >
               <div id="trailerCard">
                 {this.state.result.title ? (
@@ -147,12 +146,10 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
         </Row>
+
+        <div className="push"></div>
         <Footer />
       </Container>
-      
-    
-      
-      
     );
   }
 }

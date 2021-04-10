@@ -1,10 +1,9 @@
 import React from "react";
 import Container from "./Container";
-import NavTab from "./Navbar";
 
 function MovieDetail(props) {
   return (
-    <div className="text-center">
+    <Container>
       <img
         alt={props.title}
         className="img-fluid"
@@ -12,12 +11,12 @@ function MovieDetail(props) {
         style={{ margin: "0 auto", height: "390px" }}
       />
       <button onClick={props.onClick} data-title={props.title}>
-        💥🎬💥
+      💙🎬💙
       </button>
       <h3>{props.title}</h3>
       <h3>{props.released}</h3>
       <h3>{props.overview}</h3>
-    </div>
+    </Container>
   );
 }
 

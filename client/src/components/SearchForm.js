@@ -4,7 +4,7 @@ function SearchForm(props) {
   return (
     <form>
       <div className="form-group" id="searchCard">
-        <label htmlFor="search">Search:</label>
+        <label htmlFor="search">🔎Search:</label>
         <input
           onChange={props.handleInputChange}
           value={props.value}
@@ -15,7 +15,11 @@ function SearchForm(props) {
           id="search"
         />
         <br />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
+        <button
+          onClick={props.handleFormSubmit}
+          className="btn btn-outline-danger
+        "
+        >
           Search
         </button>
       </div>

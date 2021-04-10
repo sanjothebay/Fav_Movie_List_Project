@@ -1,22 +1,38 @@
-/* body {
-  background-image: url("");
+/* html, body {
+  height: 100%;
+  margin: 0px;
+  position: relative;
 } */
 
 footer {
   background-image: url("https://media3.giphy.com/media/pcLw0jLBelkbK/200.webp?cid=ecf05e479pl6pmglm5l4bx9kf4guhzrqxjh4zo0byneainl7&rid=200.webp");
-  position: fixed;
-  height: 100px;
+}
+.mainBody {
+  height: 100%;
+  margin-bottom: -100px;
+}
+
+.push {
+  height: 200px;
+}
+
+#sticky-footer {
+  position: static;
+  left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
+  /* height: 100px; */
+  /* bottom: 0px; */
+  /* width: 100%; */
 }
 
 #footerText,
 #navBttn,
 #appLogo {
-  color: rgb(66, 65, 65);
-  background-color: rgba(223, 224, 200, 0.918);
+  color: white;
+  background-color: black;
   border-radius: 30px;
-  border: solid rgba(255, 0, 0, 0.637) 2px;
+  border: solid white 5px;
   filter: brightness(120%);
 }
 
@@ -25,9 +41,12 @@ footer {
 }
 
 #navBttn {
-  margin: 0 40px 0 40px;
-  width: 175px;
+  margin: 0px 40px 0px 40px;
+  width: 188px;
   text-align: center;
+}
+.mr-auto {
+  padding-right: 100px;
 }
 
 .allNav {
@@ -35,16 +54,16 @@ footer {
   padding: 4%;
 }
 
-#appLogo {
+/* #appLogo {
   color: black;
   border-radius: 10px;
   border: solid rgb(223, 224, 200) 2px;
   filter: brightness(120%);
-}
+} */
 
-#resultHeader {
+/* #resultHeader {
   background-image: url("");
-}
+} */
 
 #searchCard {
   align-items: center;
