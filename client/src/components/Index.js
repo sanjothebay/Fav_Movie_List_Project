@@ -99,8 +99,8 @@ class OmdbContainer extends Component {
 
     return (
       <Container>
-        <Row>
           <NavTab />
+        <Row>
           <Col size="md-12">
             <Card heading="Search">
               <SearchForm
